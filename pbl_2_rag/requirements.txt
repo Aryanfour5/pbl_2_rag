@@ -1,0 +1,5 @@
+pypdf==4.2.0
+qdrant-client==1.9.1
+requests==2.31.0
+python-dotenv==1.0.1
+numpy==1.26.4
