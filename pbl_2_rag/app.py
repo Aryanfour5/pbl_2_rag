@@ -8,7 +8,7 @@ import sys
 import logging
 from dotenv import load_dotenv
 from config import RAGConfig
-from local_rag_preprocessor import RAGPreprocessor
+from rag_preprocessor import LocalRAGPreprocessor  # This matches your actual file
 
 # Setup logging
 logging.basicConfig(
