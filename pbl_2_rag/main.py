@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """
-Main execution file for local RAG preprocessing pipeline.
+Smart main.py that can work with existing metadata even if Qdrant is empty.
 """
 
 import os
 import sys
+import json
 import logging
 from dotenv import load_dotenv
 from config import RAGConfig
@@ -17,276 +18,291 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-def demonstrate_hybrid_search(preprocessor: LocalRAGPreprocessor):
-    """Demonstrate hybrid search capabilities with detailed comparison."""
-    
-    print("\n" + "="*80)
-    print("🔍 HYBRID SEARCH DEMONSTRATION")
-    print("="*80)
-    
-    # Test queries for legal documents
-    test_queries = [
-        "bail application requirements procedure",
-        "surety conditions and eligibility", 
-        "anticipatory bail section 438",
-        "Supreme Court bail guidelines",
-        "economic offenses bail restrictions"
-    ]
-    
-    for i, query in enumerate(test_queries, 1):
-        print(f"\n{i}. Testing Query: '{query}'")
-        print("-" * 60)
-        
-        # Get comparison of all search methods
-        comparison = preprocessor.compare_search_methods(query, limit=3)
-        
-        # Display results for each method
-        for method_name, results in comparison.items():
-            print(f"\n📊 {method_name.upper()} SEARCH ({len(results)} results):")
-            
-            if not results:
-                print("   ❌ No results found")
-                continue
-                
-            for j, result in enumerate(results[:3], 1):  # Show top 3
-                score = result.get('score', 0)
-                filename = result.get('filename', 'Unknown')[:50]  # Truncate long filenames
-                text_preview = result.get('text', '')[:120] + "..."
-                
-                print(f"   {j}. Score: {score:.4f} | File: {filename}")
-                print(f"      Preview: {text_preview}")
-                
-                # Show detailed scores for hybrid results
-                if method_name == "hybrid" and 'hybrid_score' in result:
-                    sem_score = result.get('semantic_score', 0)
-                    key_score = result.get('keyword_score', 0)
-                    print(f"      Details: Semantic={sem_score:.3f}, Keyword={key_score:.3f}")
-        
-        print()
+def load_existing_metadata(config):
+    """Load existing metadata file."""
+    metadata_file = f"./processing_metadata_{config.COLLECTION_NAME}.json"
+    try:
+        with open(metadata_file, 'r') as f:
+            metadata = json.load(f)
+        return metadata
+    except Exception as e:
+        logger.error(f"Could not load metadata: {str(e)}")
+        return None
 
-def run_interactive_search(preprocessor: LocalRAGPreprocessor):
-    """Run interactive search session."""
-    print("\n" + "="*80)
-    print("🎯 INTERACTIVE HYBRID SEARCH")
-    print("="*80)
-    print("Enter queries to search your legal document database.")
-    print("Commands:")
-    print("  - Type your search query and press Enter")
-    print("  - Use 'method:hybrid|semantic|keyword' to change search method")
-    print("  - Use 'explain' after a search to get detailed explanations")
-    print("  - Type 'quit' to exit")
-    print("-" * 80)
+def check_qdrant_data(preprocessor):
+    """Check if Qdrant has actual data."""
+    try:
+        collection_info = preprocessor.vector_db.get_collection_info()
+        points_count = collection_info.get('points_count', 0)
+        return points_count > 0
+    except Exception as e:
+        logger.warning(f"Could not check Qdrant: {str(e)}")
+        return False
+
+def demonstrate_text_search_only(preprocessor):
+    """Demonstrate text-only search when vector DB is empty."""
+    print("\n🔍 TEXT-ONLY SEARCH DEMO")
+    print("=" * 50)
+    print("Since Qdrant is empty, we'll demo keyword search only")
     
-    current_method = "hybrid"
-    last_results = []
+    # Build text index from your PDF directory
+    try:
+        print("🔧 Building keyword search index from PDFs...")
+        
+        # Get documents from PDF directory directly
+        documents = preprocessor.ingester.ingest_directory()
+        print(f"📄 Loaded {len(documents)} documents")
+        
+        # Chunk them
+        chunks = preprocessor.chunker.chunk_documents(documents)
+        print(f"📝 Created {len(chunks)} chunks")
+        
+        # Build keyword index
+        from hybrid_search import BM25Scorer
+        bm25 = BM25Scorer()
+        
+        # Prepare documents for BM25
+        bm25_docs = []
+        for chunk in chunks:
+            bm25_docs.append({
+                'id': chunk['id'],
+                'text': chunk['text'],
+                'filename': chunk['metadata']['filename'],
+                'chunk_index': chunk['metadata']['chunk_index']
+            })
+        
+        bm25.build_index(bm25_docs)
+        print("✅ Keyword search index built!")
+        
+        # Test queries
+        test_queries = [
+            "Section 438 anticipatory bail",
+            "bail application procedure",
+            "Supreme Court guidelines",
+            "surety conditions",
+            "economic offenses"
+        ]
+        
+        for query in test_queries:
+            print(f"\n🔍 Query: '{query}'")
+            scores = bm25.score(query)
+            
+            print(f"📊 Found {min(len(scores), 5)} results:")
+            for i, (doc_idx, score) in enumerate(scores[:3], 1):
+                if score > 0:
+                    doc = bm25_docs[doc_idx]
+                    filename = doc['filename'].replace('.PDF', '').replace('_', ' ')[:50]
+                    text_preview = doc['text'][:100] + "..."
+                    
+                    print(f"  {i}. Score: {score:.4f}")
+                    print(f"     Case: {filename}")
+                    print(f"     Text: {text_preview}")
+        
+        return bm25, bm25_docs
+        
+    except Exception as e:
+        print(f"❌ Could not build text search: {str(e)}")
+        return None, None
+
+def text_only_interactive_search(bm25, docs):
+    """Interactive search with text-only (BM25)."""
+    print("\n🎯 INTERACTIVE KEYWORD SEARCH")
+    print("=" * 50)
+    print("Enter your queries (keyword-based search only)")
+    print("Type 'quit' to exit")
+    print("-" * 50)
     
     while True:
         try:
-            user_input = input(f"\n[{current_method}] 🔍 Query: ").strip()
+            query = input("\n🔍 Query: ").strip()
             
-            if user_input.lower() in ['quit', 'exit', 'q']:
+            if query.lower() in ['quit', 'exit', 'q']:
                 print("👋 Goodbye!")
                 break
-                
-            if user_input.lower() == 'explain' and last_results:
-                print("\n📋 DETAILED EXPLANATIONS:")
-                for i, result in enumerate(last_results[:3], 1):
-                    print(f"\n{i}. Document: {result.get('filename', 'Unknown')}")
-                    explanation = preprocessor.explain_result(last_query, result)
-                    print(f"   Search Type: {explanation.get('search_type', 'unknown')}")
-                    print(f"   Hybrid Score: {explanation['scores']['hybrid']:.4f}")
-                    print(f"   - Semantic: {explanation['scores']['semantic']:.4f}")
-                    print(f"   - Keyword: {explanation['scores']['keyword']:.4f}")
-                    print(f"   Matching Keywords: {', '.join(explanation.get('matching_keywords', []))}")
-                    print(f"   Keyword Coverage: {explanation.get('keyword_coverage', 0):.2%}")
-                continue
-                
-            if user_input.startswith('method:'):
-                new_method = user_input.split(':')[1].strip().lower()
-                if new_method in ['hybrid', 'semantic', 'keyword']:
-                    current_method = new_method
-                    print(f"✅ Search method changed to: {current_method}")
-                else:
-                    print("❌ Invalid method. Use: hybrid, semantic, or keyword")
+            
+            if not query:
                 continue
             
-            if not user_input:
-                continue
-                
-            # Perform search
-            print(f"\n🔍 Searching with {current_method} method...")
-            results = preprocessor.query(
-                query_text=user_input,
-                limit=5,
-                search_type=current_method,
-                score_threshold=0.1
-            )
+            # Search
+            scores = bm25.score(query)
+            results = []
+            
+            for doc_idx, score in scores[:10]:  # Top 10
+                if score > 0.1:  # Minimum score threshold
+                    doc = docs[doc_idx]
+                    results.append({
+                        'score': score,
+                        'filename': doc['filename'],
+                        'text': doc['text'],
+                        'chunk_index': doc['chunk_index']
+                    })
             
             if not results:
-                print("❌ No results found. Try a different query or search method.")
+                print("❌ No results found")
                 continue
             
-            # Display results
             print(f"\n📊 Found {len(results)} results:")
-            for i, result in enumerate(results, 1):
-                score = result.get('score', 0)
-                filename = result.get('filename', 'Unknown')
-                text_preview = result.get('text', '')[:150].replace('\n', ' ') + "..."
-                search_type = result.get('search_type', 'unknown')
+            for i, result in enumerate(results[:5], 1):
+                score = result['score']
+                filename = result['filename']
+                case_name = filename.replace('.PDF', '').replace('_', ' ')[:60]
+                text_preview = result['text'][:120] + "..."
                 
-                print(f"\n{i}. [{search_type.upper()}] Score: {score:.4f}")
-                print(f"   📄 File: {filename}")
+                print(f"\n{i}. Score: {score:.4f}")
+                print(f"   📄 Case: {case_name}")
                 print(f"   📝 Preview: {text_preview}")
-                
-                # Show additional details for hybrid results
-                if current_method == "hybrid" and 'hybrid_score' in result:
-                    sem = result.get('semantic_score', 0)
-                    key = result.get('keyword_score', 0)
-                    print(f"   🔢 Breakdown: Semantic={sem:.3f}, Keyword={key:.3f}")
-            
-            # Store results for explanation
-            last_results = results
-            last_query = user_input
-            
-            print(f"\n💡 Type 'explain' for detailed explanations or continue searching...")
-            
+        
         except KeyboardInterrupt:
-            print("\n\n👋 Search interrupted. Goodbye!")
+            print("\n👋 Goodbye!")
             break
         except Exception as e:
             print(f"❌ Error: {str(e)}")
 
 def main():
-    """Main function to run enhanced RAG preprocessing with hybrid search."""
+    """Main function with better fallback options."""
     
-    # Load environment variables
     load_dotenv()
     
-    print("🚀 Enhanced RAG Pipeline with Hybrid Search")
-    print("=" * 55)
+    print("🚀 Smart RAG Pipeline with Hybrid Search")
+    print("🐳 Docker Qdrant + Fallback Options")
+    print("=" * 60)
     
     try:
-        # Initialize config
+        # Initialize
         config = RAGConfig.from_env()
-        
-        # Display configuration
         print(f"📁 PDF Directory: {config.PDF_DIRECTORY}")
-        print(f"🧠 Jina Model: {config.JINA_MODEL}")
-        print(f"📊 Vector Dimensions: {config.JINA_DIMENSIONS}")
         print(f"🗂️  Collection: {config.COLLECTION_NAME}")
-        print(f"📏 Chunk Size: {config.CHUNK_SIZE}")
-        print(f"🔄 Overlap Size: {config.OVERLAP_SIZE}")
-        print()
+        print(f"🐳 Qdrant: {config.QDRANT_HOST}:{config.QDRANT_PORT}")
         
-        # Check if directory exists
-        if not os.path.exists(config.PDF_DIRECTORY):
-            print(f"❌ PDF directory not found: {config.PDF_DIRECTORY}")
-            print("Please check the path in your .env file")
-            return 1
-        
-        # Initialize preprocessor
-        print("🔧 Initializing enhanced preprocessor with hybrid search...")
         preprocessor = LocalRAGPreprocessor(config)
         
-        # Display PDF count
+        # Check existing data
+        metadata = load_existing_metadata(config)
+        has_qdrant_data = check_qdrant_data(preprocessor)
+        
+        print(f"\n🔍 Data Status:")
+        print(f"   Metadata file: {'✅ Found' if metadata else '❌ Missing'}")
+        print(f"   Qdrant data: {'✅ Available' if has_qdrant_data else '❌ Empty'}")
+        
+        if metadata and not has_qdrant_data:
+            print(f"\n📋 Found metadata from previous processing:")
+            print(f"   • {metadata.get('total_documents', 0)} documents processed")
+            print(f"   • {metadata.get('total_chunks', 0)} chunks created")
+            print(f"   • But Qdrant collection is empty (data lost)")
+            
+            print("\nOptions:")
+            print("1. Use text-only search (fast, works immediately)")
+            print("2. Reprocess to restore full vector search (slow)")
+            print("3. Exit")
+            
+            choice = input("\nChoice (1-3): ").strip()
+            
+            if choice == "1":
+                print("\n🔄 Setting up text-only search...")
+                bm25, docs = demonstrate_text_search_only(preprocessor)
+                
+                if bm25 and docs:
+                    interactive = input("\n🎯 Start interactive search? (y/n): ").strip().lower()
+                    if interactive in ['y', 'yes']:
+                        text_only_interactive_search(bm25, docs)
+                return 0
+                
+            elif choice == "2":
+                print("⚡ Will reprocess all documents...")
+                # Continue to full processing
+            else:
+                return 0
+        
+        elif has_qdrant_data:
+            print("✅ Full vector search available!")
+            
+            # Build hybrid search
+            try:
+                preprocessor.hybrid_searcher.build_keyword_index()
+                print("✅ Hybrid search ready!")
+                
+                # Quick test
+                results = preprocessor.query("bail application", limit=3)
+                print(f"🔍 Test search: {len(results)} results found")
+                
+                # Interactive search
+                interactive = input("\n🎯 Start interactive hybrid search? (y/n): ").strip().lower()
+                if interactive in ['y', 'yes']:
+                    # Use the interactive search from the previous version
+                    print("\n🎯 INTERACTIVE HYBRID SEARCH")
+                    print("Commands: 'method:hybrid/semantic/keyword', 'quit'")
+                    
+                    current_method = "hybrid"
+                    while True:
+                        try:
+                            user_input = input(f"\n[{current_method}] 🔍 Query: ").strip()
+                            
+                            if user_input.lower() in ['quit', 'exit', 'q']:
+                                break
+                            
+                            if user_input.startswith('method:'):
+                                method = user_input.split(':')[1].strip()
+                                if method in ['hybrid', 'semantic', 'keyword']:
+                                    current_method = method
+                                    print(f"✅ Changed to {method}")
+                                continue
+                            
+                            if user_input:
+                                results = preprocessor.query(user_input, limit=5, search_type=current_method)
+                                print(f"\n📊 {len(results)} results:")
+                                for i, r in enumerate(results[:3], 1):
+                                    print(f"{i}. {r['score']:.4f} | {r['filename'][:40]}")
+                        
+                        except KeyboardInterrupt:
+                            break
+                
+                return 0
+                
+            except Exception as e:
+                print(f"⚠️  Hybrid search failed: {str(e)}")
+                print("Falling back to processing...")
+        
+        # Full processing needed
         pdf_count = preprocessor.get_pdf_count()
-        print(f"📄 Found {pdf_count} PDF files in directory")
+        print(f"\n📄 Need to process {pdf_count} PDF files")
         
         if pdf_count == 0:
-            print("❌ No PDF files found in the directory")
+            print("❌ No PDF files found")
             return 1
         
-        # Check if system is already processed
-        metadata_file = f"./processing_metadata_{config.COLLECTION_NAME}.json"
-        if os.path.exists(metadata_file):
-            print("📋 Found existing metadata file. System appears to be already processed.")
-            
-            # Try to build keyword index if not already done
-            try:
-                if not preprocessor.hybrid_searcher.indexed:
-                    print("🔧 Building keyword search index...")
-                    preprocessor.hybrid_searcher.build_keyword_index()
-                    print("✅ Keyword index built successfully!")
-                else:
-                    print("✅ Hybrid search system is ready!")
-            except Exception as e:
-                print(f"⚠️  Warning: Could not build keyword index: {str(e)}")
-                print("You can still use semantic search.")
-            
-            # Ask user what they want to do
-            print("\nChoose an option:")
-            print("1. Run hybrid search demonstration")
-            print("2. Start interactive search")
-            print("3. Reprocess all documents (will take time)")
-            print("4. Exit")
-            
-            try:
-                choice = input("\nEnter your choice (1-4): ").strip()
-                
-                if choice == "1":
-                    demonstrate_hybrid_search(preprocessor)
-                elif choice == "2":
-                    run_interactive_search(preprocessor)
-                elif choice == "3":
-                    print("⚡ Starting full preprocessing pipeline...")
-                    # Continue to full processing below
-                elif choice == "4":
-                    print("👋 Goodbye!")
-                    return 0
-                else:
-                    print("❌ Invalid choice. Starting interactive search...")
-                    run_interactive_search(preprocessor)
-                    return 0
-            except KeyboardInterrupt:
-                print("\n👋 Goodbye!")
-                return 0
-                
-            if choice != "3":
-                return 0
+        print(f"\n⚠️  This will take significant time for {pdf_count} documents.")
+        proceed = input("Continue with full processing? (y/n): ").strip().lower()
         
-        # Run preprocessing pipeline
-        print("⚡ Starting enhanced preprocessing pipeline...")
+        if proceed not in ['y', 'yes']:
+            print("❌ Processing cancelled")
+            return 0
+        
+        # Process
         result = preprocessor.process_documents()
         
         if result["success"]:
-            print(f"✅ {result['message']}")
-            print("\n📊 Processing Summary:")
+            print("✅ Processing completed!")
             metadata = result['metadata']
-            print(f"  • Source directory: {metadata['source_directory']}")
-            print(f"  • Documents processed: {metadata['total_documents']}")
-            print(f"  • Total chunks created: {metadata['total_chunks']}")
-            print(f"  • Hybrid search enabled: {metadata.get('hybrid_search_enabled', False)}")
-            print(f"  • Semantic weight: {metadata.get('semantic_weight', 0.7):.1%}")
-            print(f"  • Document files:")
-            for filename in metadata['document_files'][:10]:  # Show first 10
-                print(f"    - {filename}")
-            if len(metadata['document_files']) > 10:
-                print(f"    ... and {len(metadata['document_files']) - 10} more files")
+            print(f"📊 {metadata['total_documents']} docs → {metadata['total_chunks']} chunks")
             
-            # Demonstrate hybrid search
-            demonstrate_hybrid_search(preprocessor)
-            
-            # Ask if user wants interactive search
-            try:
-                start_interactive = input("\n🎯 Start interactive search session? (y/n): ").strip().lower()
-                if start_interactive in ['y', 'yes']:
-                    run_interactive_search(preprocessor)
-            except KeyboardInterrupt:
-                print("\n👋 Goodbye!")
-            
-            print(f"\n🎉 Enhanced RAG preprocessing with hybrid search completed successfully!")
-            print(f"📋 Metadata saved to: processing_metadata_{config.COLLECTION_NAME}.json")
-            
+            try_now = input("\n🎯 Try search now? (y/n): ").strip().lower()
+            if try_now in ['y', 'yes']:
+                results = preprocessor.query("bail application", limit=3)
+                print(f"🔍 Test: {len(results)} results found")
+                
+                for i, r in enumerate(results, 1):
+                    filename = r['filename'].replace('.PDF', '').replace('_', ' ')[:50]
+                    print(f"{i}. {r['score']:.4f} | {filename}")
+        
         else:
-            print(f"❌ Pipeline failed: {result['message']}")
+            print(f"❌ Processing failed: {result['message']}")
             return 1
             
     except KeyboardInterrupt:
-        print("\n⚠️  Process interrupted by user")
+        print("\n⚠️  Interrupted")
         return 1
     except Exception as e:
-        logger.error(f"Unexpected error: {str(e)}")
-        print(f"💥 Unexpected error: {str(e)}")
+        print(f"💥 Error: {str(e)}")
         return 1
     
     return 0

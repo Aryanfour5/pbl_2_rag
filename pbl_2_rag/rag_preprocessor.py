@@ -7,7 +7,7 @@ from pdf_ingester import PDFIngester
 from text_chunker import TextChunker
 from jina_embedder import JinaEmbedder
 from qdrant_database import QdrantVectorDB
-from hybrid_search import HybridSearcher  # Import the new hybrid searcher
+from hybrid_search import HybridSearcher  
 
 logger = logging.getLogger(__name__)
 
@@ -22,7 +22,7 @@ class LocalRAGPreprocessor:
         config.validate()
         self.config = config
         
-        # Initialize components
+        # Initialize components (no Google Drive downloader needed)
         self.ingester = PDFIngester(config.PDF_DIRECTORY)
         self.chunker = TextChunker(config.CHUNK_SIZE, config.OVERLAP_SIZE)
         
@@ -43,11 +43,11 @@ class LocalRAGPreprocessor:
             vector_size=config.JINA_DIMENSIONS
         )
         
-        # Initialize Hybrid Searcher
+        # Initialize Hybrid Searcher - ADD THIS
         self.hybrid_searcher = HybridSearcher(
             vector_db=self.vector_db,
             embedder=self.embedder,
-            alpha=0.7  # 70% semantic, 30% keyword - you can adjust this
+            alpha=0.7  # 70% semantic, 30% keyword
         )
     
     def get_pdf_count(self) -> int:
@@ -93,9 +93,14 @@ class LocalRAGPreprocessor:
             logger.info("Step 4: Storing in Qdrant vector database...")
             self.vector_db.add_documents(embedded_chunks)
             
-            # Step 5: Build keyword index for hybrid search
-            logger.info("Step 5: Building keyword search index for hybrid search...")
-            self.hybrid_searcher.build_keyword_index()
+            # Step 5: Build keyword index for hybrid search - ADD THIS
+            logger.info("Step 5: Building keyword search index...")
+            try:
+                self.hybrid_searcher.build_keyword_index()
+                hybrid_enabled = True
+            except Exception as e:
+                logger.warning(f"Could not build keyword index: {str(e)}")
+                hybrid_enabled = False
             
             # Get final collection info
             collection_info = self.vector_db.get_collection_info()
@@ -112,18 +117,21 @@ class LocalRAGPreprocessor:
                 "jina_model": self.config.JINA_MODEL,
                 "embedding_dimension": self.config.JINA_DIMENSIONS,
                 "collection_info": collection_info,
-                "hybrid_search_enabled": True,
-                "semantic_weight": self.hybrid_searcher.alpha
+                "hybrid_search_enabled": hybrid_enabled  # ADD THIS
             }
             
             # Save metadata
             self._save_metadata(metadata)
             
-            logger.info("RAG preprocessing pipeline with hybrid search completed successfully!")
+            success_msg = f"Processed {len(documents)} documents from local directory into {len(chunks)} chunks"
+            if hybrid_enabled:
+                success_msg += " with hybrid search enabled"
+            
+            logger.info("RAG preprocessing pipeline completed successfully!")
             return {
                 "success": True,
                 "metadata": metadata,
-                "message": f"Processed {len(documents)} documents from local directory into {len(chunks)} chunks with hybrid search enabled"
+                "message": success_msg
             }
             
         except Exception as e:
@@ -140,14 +148,14 @@ class LocalRAGPreprocessor:
         except Exception as e:
             logger.warning(f"Failed to save metadata: {str(e)}")
     
-    def query(self, query_text: str, limit: int = 5, score_threshold: float = 0.0, 
+    def query(self, query_text: str, limit: int = 5, score_threshold: float = 0.7, 
               filename_filter: str = None, search_type: str = "hybrid") -> List[Dict[str, Any]]:
         """
-        Query the RAG system with multiple search options.
+        Query the RAG system with hybrid search options.
         
         Args:
             query_text: Search query
-            limit: Number of results to return
+            limit: Number of results to return  
             score_threshold: Minimum score threshold
             filename_filter: Filter by specific filename
             search_type: 'hybrid', 'semantic', or 'keyword'
@@ -157,6 +165,10 @@ class LocalRAGPreprocessor:
         try:
             if search_type == "hybrid":
                 # Use hybrid search
+                if not self.hybrid_searcher.indexed:
+                    logger.info("Building keyword index for hybrid search...")
+                    self.hybrid_searcher.build_keyword_index()
+                
                 results = self.hybrid_searcher.search(
                     query=query_text,
                     limit=limit,
@@ -165,12 +177,12 @@ class LocalRAGPreprocessor:
                 )
                 
             elif search_type == "semantic":
-                # Use only semantic search
+                # Use only semantic search (your original method)
                 query_embedding = self.embedder.generate_query_embedding(query_text)
                 results = self.vector_db.search(
                     query_embedding=query_embedding,
                     limit=limit,
-                    score_threshold=max(score_threshold, 0.5),  # Higher threshold for semantic
+                    score_threshold=score_threshold,
                     filename_filter=filename_filter
                 )
                 # Add search type info
@@ -189,11 +201,9 @@ class LocalRAGPreprocessor:
                     if bm25_score > score_threshold:
                         metadata = self.hybrid_searcher.bm25.metadata[doc_idx]
                         
-                        # Apply filename filter if specified
                         if filename_filter and metadata['filename'] != filename_filter:
                             continue
                         
-                        # Get document text
                         doc_text = ' '.join(self.hybrid_searcher.bm25.corpus[doc_idx])
                         
                         results.append({
@@ -205,7 +215,14 @@ class LocalRAGPreprocessor:
                             'search_type': 'keyword'
                         })
             else:
-                raise ValueError(f"Invalid search_type: {search_type}. Use 'hybrid', 'semantic', or 'keyword'")
+                # Default to original semantic search for backward compatibility
+                query_embedding = self.embedder.generate_query_embedding(query_text)
+                results = self.vector_db.search(
+                    query_embedding=query_embedding,
+                    limit=limit,
+                    score_threshold=score_threshold,
+                    filename_filter=filename_filter
+                )
             
             logger.info(f"Found {len(results)} relevant chunks using {search_type} search")
             return results
@@ -214,20 +231,22 @@ class LocalRAGPreprocessor:
             logger.error(f"Query failed: {str(e)}")
             return []
     
+    # ADD THESE NEW METHODS
     def explain_result(self, query_text: str, result: Dict[str, Any]) -> Dict[str, Any]:
         """Get explanation for why a result was returned."""
-        return self.hybrid_searcher.explain_search(query_text, result)
+        try:
+            return self.hybrid_searcher.explain_search(query_text, result)
+        except Exception as e:
+            logger.warning(f"Could not explain result: {str(e)}")
+            return {"error": str(e)}
     
     def compare_search_methods(self, query_text: str, limit: int = 5) -> Dict[str, List[Dict[str, Any]]]:
         """Compare results from different search methods."""
-        logger.info(f"Comparing search methods for: {query_text}")
-        
         comparison = {}
         
-        # Test all search types
         for search_type in ["hybrid", "semantic", "keyword"]:
             try:
-                results = self.query(query_text, limit=limit, search_type=search_type)
+                results = self.query(query_text, limit=limit, search_type=search_type, score_threshold=0.1)
                 comparison[search_type] = results
             except Exception as e:
                 logger.warning(f"Failed to get {search_type} results: {str(e)}")
@@ -248,9 +267,8 @@ class LocalRAGPreprocessor:
             "collection_info": self.vector_db.get_collection_info(),
             "pdf_count": self.get_pdf_count(),
             "hybrid_search": {
-                "enabled": True,
-                "indexed": self.hybrid_searcher.indexed,
-                "semantic_weight": self.hybrid_searcher.alpha,
-                "keyword_weight": 1 - self.hybrid_searcher.alpha
+                "enabled": hasattr(self, 'hybrid_searcher'),
+                "indexed": getattr(self.hybrid_searcher, 'indexed', False),
+                "alpha": getattr(self.hybrid_searcher, 'alpha', 0.7)
             }
         }
