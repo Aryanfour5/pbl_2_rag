@@ -76,11 +76,10 @@ def demonstrate_text_search_only(preprocessor):
         
         # Test queries
         test_queries = [
-            "Section 438 anticipatory bail",
-            "bail application procedure",
-            "Supreme Court guidelines",
-            "surety conditions",
-            "economic offenses"
+            # "bail application procedure",
+            # "Supreme Court guidelines",
+            # "surety conditions",
+            # "economic offenses"
         ]
         
         for query in test_queries:
@@ -106,9 +105,9 @@ def demonstrate_text_search_only(preprocessor):
 
 def text_only_interactive_search(bm25, docs):
     """Interactive search with text-only (BM25)."""
-    print("\n🎯 INTERACTIVE KEYWORD SEARCH")
+    print("\n🎯 Hybrid KEYWORD SEARCH")
     print("=" * 50)
-    print("Enter your queries (keyword-based search only)")
+    print("Enter your queries")
     print("Type 'quit' to exit")
     print("-" * 50)
     
@@ -145,8 +144,8 @@ def text_only_interactive_search(bm25, docs):
             for i, result in enumerate(results[:5], 1):
                 score = result['score']
                 filename = result['filename']
-                case_name = filename.replace('.PDF', '').replace('_', ' ')[:60]
-                text_preview = result['text'][:120] + "..."
+                case_name = filename.replace('.PDF', '').replace('_', ' ')[:100]
+                text_preview = result['text'][:500] + "..."
                 
                 print(f"\n{i}. Score: {score:.4f}")
                 print(f"   📄 Case: {case_name}")
