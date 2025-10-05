@@ -1,77 +1,112 @@
-import os
-import logging
-from typing import List, Dict, Any
-from pathlib import Path
-from pypdf import PdfReader
+"""
+HybridBail: PDF Ingester
+Extracts text from PDF documents
+"""
 
-# Setup logging
-logging.basicConfig(level=logging.INFO)
+import os
+from pathlib import Path
+from typing import List, Dict
+import logging
+
 logger = logging.getLogger(__name__)
 
 class PDFIngester:
-    """Handles PDF document ingestion and text extraction."""
+    """Ingests and processes PDF documents."""
     
-    def __init__(self, pdf_directory: str):
-        self.pdf_directory = Path(pdf_directory)
-        self.processed_docs = []
-    
-    def extract_text_from_pdf(self, pdf_path: Path) -> Dict[str, Any]:
-        """Extract text from a single PDF file."""
-        try:
-            reader = PdfReader(pdf_path)
-            text_content = ""
-            metadata = {
-                "filename": pdf_path.name,
-                "path": str(pdf_path),
-                "num_pages": len(reader.pages),
-                "file_size": pdf_path.stat().st_size
-            }
-            
-            # Extract text from all pages
-            for page_num, page in enumerate(reader.pages):
-                page_text = page.extract_text()
-                if page_text.strip():  # Only add non-empty pages
-                    text_content += f"\n--- Page {page_num + 1} ---\n{page_text}"
-            
-            # Extract PDF metadata if available
-            if reader.metadata:
-                pdf_metadata = {
-                    "title": reader.metadata.get('/Title', ''),
-                    "author": reader.metadata.get('/Author', ''),
-                    "subject": reader.metadata.get('/Subject', ''),
-                    "creator": reader.metadata.get('/Creator', ''),
-                    "creation_date": str(reader.metadata.get('/CreationDate', ''))
-                }
-                metadata.update(pdf_metadata)
-            
-            return {
-                "text": text_content.strip(),
-                "metadata": metadata
-            }
-            
-        except Exception as e:
-            logger.error(f"Error extracting text from {pdf_path}: {str(e)}")
-            return None
-    
-    def ingest_directory(self) -> List[Dict[str, Any]]:
-        """Ingest all PDF files from the specified directory."""
+    def __init__(self, config):
+        """Initialize with config object."""
+        self.config = config
+        self.pdf_directory = Path(config.PDF_DIRECTORY)
+        
         if not self.pdf_directory.exists():
-            logger.error(f"Directory {self.pdf_directory} does not exist")
+            os.makedirs(self.pdf_directory, exist_ok=True)
+            logger.info(f"Created PDF directory: {self.pdf_directory}")
+    
+    def ingest_directory(self, directory: str) -> List[Dict]:
+        """Ingest all PDFs from a directory."""
+        directory_path = Path(directory)
+        
+        if not directory_path.exists():
+            logger.warning(f"Directory not found: {directory}")
             return []
         
-        pdf_files = list(self.pdf_directory.glob("**/*.pdf"))
-        logger.info(f"Found {len(pdf_files)} PDF files")
+        pdf_files = list(directory_path.glob("*.pdf"))
+        logger.info(f"Found {len(pdf_files)} PDF files in {directory}")
         
         documents = []
         for pdf_file in pdf_files:
-            logger.info(f"Processing: {pdf_file.name}")
-            doc_data = self.extract_text_from_pdf(pdf_file)
-            if doc_data and doc_data["text"]:
-                documents.append(doc_data)
-                logger.info(f"Successfully processed: {pdf_file.name}")
-            else:
-                logger.warning(f"Failed to extract text from: {pdf_file.name}")
+            try:
+                doc = self.ingest_file(str(pdf_file))
+                if doc:
+                    documents.append(doc)
+            except Exception as e:
+                logger.error(f"Error processing {pdf_file}: {e}")
         
-        self.processed_docs = documents
-        logger.info(f"Successfully ingested {len(documents)} documents")
         return documents
+    
+    def ingest_file(self, pdf_path: str) -> Dict:
+        """Extract text from a single PDF file."""
+        try:
+            text = self._extract_text(pdf_path)
+            
+            if not text or len(text.strip()) < 50:
+                logger.warning(f"Insufficient text extracted from {pdf_path}")
+                return None
+            
+            return {
+                'filename': os.path.basename(pdf_path),
+                'filepath': pdf_path,
+                'text': text,
+                'metadata': {
+                    'source': pdf_path,
+                    'pages': self._count_pages(pdf_path)
+                }
+            }
+            
+        except Exception as e:
+            logger.error(f"Failed to ingest {pdf_path}: {e}")
+            return None
+    
+    def _extract_text(self, pdf_path: str) -> str:
+        """Extract text using PyPDF2 and pdfplumber."""
+        text = ""
+        
+        # Try pdfplumber first (better for complex PDFs)
+        try:
+            import pdfplumber
+            with pdfplumber.open(pdf_path) as pdf:
+                for page in pdf.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text += page_text + "\n"
+            
+            if text.strip():
+                return text
+        except ImportError:
+            logger.debug("pdfplumber not available, trying PyPDF2")
+        except Exception as e:
+            logger.warning(f"pdfplumber extraction failed: {e}")
+        
+        # Fallback to PyPDF2
+        try:
+            import PyPDF2
+            with open(pdf_path, 'rb') as file:
+                pdf_reader = PyPDF2.PdfReader(file)
+                for page in pdf_reader.pages:
+                    page_text = page.extract_text()
+                    if page_text:
+                        text += page_text + "\n"
+        except Exception as e:
+            logger.error(f"PyPDF2 extraction failed: {e}")
+        
+        return text
+    
+    def _count_pages(self, pdf_path: str) -> int:
+        """Count number of pages in PDF."""
+        try:
+            import PyPDF2
+            with open(pdf_path, 'rb') as file:
+                pdf_reader = PyPDF2.PdfReader(file)
+                return len(pdf_reader.pages)
+        except:
+            return 0

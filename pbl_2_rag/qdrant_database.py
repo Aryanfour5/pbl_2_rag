@@ -1,163 +1,191 @@
+"""
+HybridBail: Qdrant Database Interface
+Multi-collection vector database management
+"""
+
 import logging
-import uuid
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from qdrant_client import QdrantClient
-from qdrant_client.models import (
-    Distance, VectorParams, PointStruct, 
-    Filter, FieldCondition, MatchValue
-)
+from qdrant_client.models import Distance, VectorParams, PointStruct
 
 logger = logging.getLogger(__name__)
 
-class QdrantVectorDB:
-    """Handles vector database operations using Qdrant."""
+class QdrantDatabase:
+    """Interface for Qdrant vector database with multi-collection support."""
     
-    def __init__(self, 
-                 host: str = "localhost", 
-                 port: int = 6333,
-                 url: str = None,
-                 collection_name: str = "legal_documents",
-                 vector_size: int = 1024):
+    def __init__(self, config):
+        """Initialize Qdrant client."""
+        self.config = config
         
-        # Initialize client
-        if url:
-            self.client = QdrantClient(url=url)
+        # Connect to Qdrant
+        if config.QDRANT_URL:
+            # Cloud instance
+            self.client = QdrantClient(
+                url=config.QDRANT_URL,
+                api_key=config.QDRANT_API_KEY
+            )
+            logger.info(f"Connected to Qdrant Cloud: {config.QDRANT_URL}")
         else:
-            self.client = QdrantClient(host=host, port=port)
-        
-        self.collection_name = collection_name
-        self.vector_size = vector_size
-        
-        # Create collection
-        self._create_collection()
-        logger.info(f"Initialized Qdrant client for collection: {collection_name}")
+            # Local instance
+            self.client = QdrantClient(
+                host=config.QDRANT_HOST,
+                port=config.QDRANT_PORT
+            )
+            logger.info(f"Connected to Qdrant at {config.QDRANT_HOST}:{config.QDRANT_PORT}")
     
-    def _create_collection(self):
-        """Create or recreate the collection."""
+    def create_collection(self, collection_name: str):
+        """Create a new collection."""
         try:
-            # Check if collection exists
-            collections = self.client.get_collections()
-            collection_names = [col.name for col in collections.collections]
-            
-            if self.collection_name in collection_names:
-                logger.info(f"Collection '{self.collection_name}' already exists")
+            # Check if exists
+            collections = self.client.get_collections().collections
+            if any(c.name == collection_name for c in collections):
+                logger.info(f"Collection '{collection_name}' already exists")
                 return
             
-            # Create new collection
+            # Create collection
             self.client.create_collection(
-                collection_name=self.collection_name,
+                collection_name=collection_name,
                 vectors_config=VectorParams(
-                    size=self.vector_size,
-                    distance=Distance.COSINE  # Good for text similarity
+                    size=self.config.VECTOR_SIZE,
+                    distance=Distance.COSINE
                 )
             )
-            logger.info(f"Created new collection: {self.collection_name}")
+            logger.info(f"Created collection: {collection_name}")
             
         except Exception as e:
-            logger.error(f"Error creating collection: {str(e)}")
+            logger.error(f"Error creating collection '{collection_name}': {e}")
             raise
     
-    def add_documents(self, embedded_chunks: List[Dict[str, Any]]):
-        """Add embedded chunks to Qdrant."""
-        points = []
-        
-        for chunk in embedded_chunks:
-            # Prepare metadata (Qdrant payload)
-            payload = {
-                "text": chunk["text"],
-                "filename": chunk["metadata"].get("filename", ""),
-                "chunk_index": chunk["metadata"].get("chunk_index", 0),
-                "chunk_size": chunk["metadata"].get("chunk_size", 0),
-                "file_size": chunk["metadata"].get("file_size", 0),
-                "num_pages": chunk["metadata"].get("num_pages", 0),
-                "title": chunk["metadata"].get("title", ""),
-                "author": chunk["metadata"].get("author", "")
-            }
+    def create_category_collections(self, categories: List[str]):
+        """Create separate collections for each bail category."""
+        for category in categories:
+            collection_name = self.config.get_collection_name(category)
+            self.create_collection(collection_name)
+    
+    def upsert(self, collection_name: str, vectors: List[List[float]], 
+               payloads: List[Dict], ids: Optional[List[str]] = None):
+        """Insert or update vectors in collection."""
+        try:
+            # Ensure collection exists
+            self.create_collection(collection_name)
             
-            # Create point
-            point = PointStruct(
-                id=str(uuid.uuid4()),  # Generate unique UUID
-                vector=chunk["embedding"],
-                payload=payload
+            # Generate IDs if not provided
+            if ids is None:
+                import uuid
+                ids = [str(uuid.uuid4()) for _ in vectors]
+            
+            # Create points
+            points = [
+                PointStruct(
+                    id=point_id,
+                    vector=vector,
+                    payload=payload
+                )
+                for point_id, vector, payload in zip(ids, vectors, payloads)
+            ]
+            
+            # Upsert to Qdrant
+            self.client.upsert(
+                collection_name=collection_name,
+                points=points
             )
-            points.append(point)
+            
+            logger.info(f"Upserted {len(points)} points to '{collection_name}'")
+            
+        except Exception as e:
+            logger.error(f"Error upserting to '{collection_name}': {e}")
+            raise
+    
+    def search(self, collection_name: str, query_vector: List[float], 
+               limit: int = 10, score_threshold: Optional[float] = None) -> List[Dict]:
+        """Search for similar vectors."""
+        try:
+            results = self.client.search(
+                collection_name=collection_name,
+                query_vector=query_vector,
+                limit=limit,
+                score_threshold=score_threshold
+            )
+            
+            # Format results
+            formatted_results = []
+            for result in results:
+                formatted_results.append({
+                    'id': result.id,
+                    'score': result.score,
+                    'payload': result.payload,
+                    **result.payload  # Unpack payload for easy access
+                })
+            
+            return formatted_results
+            
+        except Exception as e:
+            logger.error(f"Error searching in '{collection_name}': {e}")
+            return []
+    
+    def search_multi_collection(self, query_vector: List[float], 
+                               categories: List[str], limit: int = 10) -> List[Dict]:
+        """Search across multiple category collections."""
+        all_results = []
         
-        # Upload points in batches
-        batch_size = 100
-        total_points = len(points)
-        
-        for i in range(0, total_points, batch_size):
-            batch_end = min(i + batch_size, total_points)
-            batch_points = points[i:batch_end]
+        for category in categories:
+            collection_name = self.config.get_collection_name(category)
             
             try:
-                self.client.upsert(
-                    collection_name=self.collection_name,
-                    points=batch_points
+                results = self.search(
+                    collection_name=collection_name,
+                    query_vector=query_vector,
+                    limit=limit
                 )
-                logger.info(f"Uploaded batch {i//batch_size + 1}/{(total_points-1)//batch_size + 1}")
+                
+                # Tag with category
+                for result in results:
+                    result['category'] = category
+                
+                all_results.extend(results)
                 
             except Exception as e:
-                logger.error(f"Error uploading batch {i//batch_size + 1}: {str(e)}")
-                raise
+                logger.warning(f"Search in '{collection_name}' failed: {e}")
         
-        logger.info(f"Successfully added {total_points} documents to Qdrant")
+        # Sort by score and return top results
+        all_results.sort(key=lambda x: x.get('score', 0), reverse=True)
+        return all_results[:limit]
     
-    def search(self, 
-              query_embedding: List[float], 
-              limit: int = 5,
-              score_threshold: float = 0.7,
-              filename_filter: str = None) -> List[Dict[str, Any]]:
-        """Search for similar documents."""
-        
-        # Build filter if filename specified
-        query_filter = None
-        if filename_filter:
-            query_filter = Filter(
-                must=[
-                    FieldCondition(
-                        key="filename",
-                        match=MatchValue(value=filename_filter)
-                    )
-                ]
-            )
-        
-        # Perform search
-        search_results = self.client.search(
-            collection_name=self.collection_name,
-            query_vector=query_embedding,
-            limit=limit,
-            score_threshold=score_threshold,
-            query_filter=query_filter,
-            with_payload=True,
-            with_vectors=False  # Don't return vectors to save bandwidth
-        )
-        
-        # Format results
-        results = []
-        for result in search_results:
-            results.append({
-                "id": result.id,
-                "score": result.score,
-                "text": result.payload.get("text", ""),
-                "filename": result.payload.get("filename", ""),
-                "chunk_index": result.payload.get("chunk_index", 0),
-                "metadata": result.payload
-            })
-        
-        return results
-    
-    def get_collection_info(self) -> Dict[str, Any]:
-        """Get information about the collection."""
+    def get_collection_info(self, collection_name: str) -> Dict:
+        """Get information about a collection."""
         try:
-            info = self.client.get_collection(self.collection_name)
+            info = self.client.get_collection(collection_name)
             return {
-                "name": info.config.collection_name,
-                "vector_size": info.config.params.vectors.size,
-                "distance": info.config.params.vectors.distance,
-                "points_count": info.points_count,
-                "status": info.status
+                'name': collection_name,
+                'vectors_count': info.vectors_count,
+                'points_count': info.points_count,
+                'status': info.status
             }
         except Exception as e:
-            logger.error(f"Error getting collection info: {str(e)}")
+            logger.error(f"Error getting info for '{collection_name}': {e}")
             return {}
+    
+    def list_collections(self) -> List[str]:
+        """List all collections."""
+        try:
+            collections = self.client.get_collections().collections
+            return [c.name for c in collections]
+        except Exception as e:
+            logger.error(f"Error listing collections: {e}")
+            return []
+    
+    def delete_collection(self, collection_name: str):
+        """Delete a collection."""
+        try:
+            self.client.delete_collection(collection_name)
+            logger.info(f"Deleted collection: {collection_name}")
+        except Exception as e:
+            logger.error(f"Error deleting collection '{collection_name}': {e}")
+    
+    def count_points(self, collection_name: str) -> int:
+        """Count points in a collection."""
+        try:
+            info = self.get_collection_info(collection_name)
+            return info.get('points_count', 0)
+        except:
+            return 0
