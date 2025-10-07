@@ -1,5 +1,5 @@
 {
-  "source_directory": "C:\\Me\\Main Bail Cases Folder",
+  "source_directory": "D:\\BTech-Project\\Main Bail Cases Folder",
   "total_documents": 516,
   "document_files": [
     "Adri_Dharan_Das_vs_State_Of_West_Bengal_on_21_February_2005.PDF",
@@ -519,10 +519,11 @@
     "Union_Of_India_vs_K_A_Najeeb_on_1_February_2021.PDF",
     "Waheed_Ur_Rehman_Parra_vs_Ut_Of_J_K_Through_Investigating_Officer_on_25_May_2022.PDF"
   ],
-  "total_chunks": 47402,
+  "total_chunks": 47090,
   "chunk_size": 1000,
   "overlap_size": 200,
   "jina_model": "jina-embeddings-v3",
   "embedding_dimension": 1024,
-  "collection_info": {}
+  "collection_info": {},
+  "hybrid_search_enabled": true
 }

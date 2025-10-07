@@ -1,0 +1,308 @@
+2025-10-05 15:17:33,945 - __main__ - INFO - ================================================================================
+2025-10-05 15:17:33,945 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-05 15:17:33,946 - __main__ - INFO - ================================================================================
+2025-10-05 15:17:33,946 - __main__ - INFO - Initializing HybridBail components...
+2025-10-05 15:17:34,609 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-05 15:17:34,611 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-05 15:17:42,034 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-05 15:17:56,720 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,720 - __main__ - INFO - Processing category: Anticipatory Bail
+2025-10-05 15:17:56,721 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,721 - __main__ - WARNING - Directory not found: ./pdf_dataset\anticipatory bail
+2025-10-05 15:17:56,721 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,721 - __main__ - INFO - Processing category: Regular Bail
+2025-10-05 15:17:56,722 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,722 - __main__ - WARNING - Directory not found: ./pdf_dataset\regular_bail
+2025-10-05 15:17:56,722 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,722 - __main__ - INFO - Processing category: Interim Bail
+2025-10-05 15:17:56,722 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,723 - __main__ - WARNING - Directory not found: ./pdf_dataset\interim bail
+2025-10-05 15:17:56,723 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,723 - __main__ - INFO - Processing category: Default Bail
+2025-10-05 15:17:56,723 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,723 - __main__ - WARNING - Directory not found: ./pdf_dataset\default_bail
+2025-10-05 15:17:56,724 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,724 - __main__ - INFO - Processing category: Bail Cancellation
+2025-10-05 15:17:56,724 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,725 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_cancellation
+2025-10-05 15:17:56,725 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,726 - __main__ - INFO - Processing category: Bail with Conditions
+2025-10-05 15:17:56,726 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,726 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_conditions
+2025-10-05 15:17:56,726 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,726 - __main__ - INFO - Processing category: NDPS Bail
+2025-10-05 15:17:56,727 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,727 - __main__ - WARNING - Directory not found: ./pdf_dataset\NDPS bail
+2025-10-05 15:17:56,727 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,727 - __main__ - INFO - Processing category: POCSO Bail
+2025-10-05 15:17:56,727 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,727 - __main__ - WARNING - Directory not found: ./pdf_dataset\POCSO bail
+2025-10-05 15:17:56,728 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,728 - __main__ - INFO - Processing category: UAPA Bail
+2025-10-05 15:17:56,729 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,730 - __main__ - WARNING - Directory not found: ./pdf_dataset\UAPA bail
+2025-10-05 15:17:56,730 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,731 - __main__ - INFO - Processing category: SC/ST Act Bail
+2025-10-05 15:17:56,731 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,731 - __main__ - WARNING - Directory not found: ./pdf_dataset\SC,ST Act bail
+2025-10-05 15:17:56,731 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,732 - __main__ - INFO - Processing category: High Court Bail
+2025-10-05 15:17:56,732 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,732 - __main__ - WARNING - Directory not found: ./pdf_dataset\high_court_bail
+2025-10-05 15:17:56,732 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,732 - __main__ - INFO - Processing category: Supreme Court Bail
+2025-10-05 15:17:56,732 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,732 - __main__ - WARNING - Directory not found: ./pdf_dataset\supreme_court_bail
+2025-10-05 15:17:56,732 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,733 - __main__ - INFO - Processing category: Judicial Discretion
+2025-10-05 15:17:56,733 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,733 - __main__ - WARNING - Directory not found: ./pdf_dataset\judicial_discretion
+2025-10-05 15:17:56,733 - __main__ - INFO - 
+============================================================
+2025-10-05 15:17:56,734 - __main__ - INFO - Processing category: Bail Precedent
+2025-10-05 15:17:56,734 - __main__ - INFO - ============================================================
+2025-10-05 15:17:56,734 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail precedent
+2025-10-05 15:22:18,517 - __main__ - INFO - ================================================================================
+2025-10-05 15:22:18,517 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-05 15:22:18,518 - __main__ - INFO - ================================================================================
+2025-10-05 15:22:18,518 - __main__ - INFO - Initializing HybridBail components...
+2025-10-05 15:22:19,041 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-05 15:22:19,041 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-05 15:22:19,571 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-05 15:22:20,869 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,869 - __main__ - INFO - Processing category: Anticipatory Bail
+2025-10-05 15:22:20,869 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,870 - __main__ - WARNING - Directory not found: ./pdf_dataset\anticipatory bail
+2025-10-05 15:22:20,870 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,870 - __main__ - INFO - Processing category: Regular Bail
+2025-10-05 15:22:20,870 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,870 - __main__ - WARNING - Directory not found: ./pdf_dataset\regular_bail
+2025-10-05 15:22:20,871 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,871 - __main__ - INFO - Processing category: Interim Bail
+2025-10-05 15:22:20,871 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,871 - __main__ - WARNING - Directory not found: ./pdf_dataset\interim bail
+2025-10-05 15:22:20,871 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,872 - __main__ - INFO - Processing category: Default Bail
+2025-10-05 15:22:20,872 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,872 - __main__ - WARNING - Directory not found: ./pdf_dataset\default_bail
+2025-10-05 15:22:20,872 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,872 - __main__ - INFO - Processing category: Bail Cancellation
+2025-10-05 15:22:20,872 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,872 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_cancellation
+2025-10-05 15:22:20,873 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,873 - __main__ - INFO - Processing category: Bail with Conditions
+2025-10-05 15:22:20,873 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,873 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_conditions
+2025-10-05 15:22:20,873 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,873 - __main__ - INFO - Processing category: NDPS Bail
+2025-10-05 15:22:20,873 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,874 - __main__ - WARNING - Directory not found: ./pdf_dataset\NDPS bail
+2025-10-05 15:22:20,874 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,874 - __main__ - INFO - Processing category: POCSO Bail
+2025-10-05 15:22:20,874 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,874 - __main__ - WARNING - Directory not found: ./pdf_dataset\POCSO bail
+2025-10-05 15:22:20,875 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,875 - __main__ - INFO - Processing category: UAPA Bail
+2025-10-05 15:22:20,875 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,875 - __main__ - WARNING - Directory not found: ./pdf_dataset\UAPA bail
+2025-10-05 15:22:20,875 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,876 - __main__ - INFO - Processing category: SC/ST Act Bail
+2025-10-05 15:22:20,876 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,876 - __main__ - WARNING - Directory not found: ./pdf_dataset\SC,ST Act bail
+2025-10-05 15:22:20,876 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,877 - __main__ - INFO - Processing category: High Court Bail
+2025-10-05 15:22:20,877 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,877 - __main__ - WARNING - Directory not found: ./pdf_dataset\high_court_bail
+2025-10-05 15:22:20,877 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,877 - __main__ - INFO - Processing category: Supreme Court Bail
+2025-10-05 15:22:20,878 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,878 - __main__ - WARNING - Directory not found: ./pdf_dataset\supreme_court_bail
+2025-10-05 15:22:20,878 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,878 - __main__ - INFO - Processing category: Judicial Discretion
+2025-10-05 15:22:20,878 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,879 - __main__ - WARNING - Directory not found: ./pdf_dataset\judicial_discretion
+2025-10-05 15:22:20,879 - __main__ - INFO - 
+============================================================
+2025-10-05 15:22:20,879 - __main__ - INFO - Processing category: Bail Precedent
+2025-10-05 15:22:20,879 - __main__ - INFO - ============================================================
+2025-10-05 15:22:20,880 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail precedent
+2025-10-05 15:26:26,313 - __main__ - INFO - ================================================================================
+2025-10-05 15:26:26,314 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-05 15:26:26,314 - __main__ - INFO - ================================================================================
+2025-10-05 15:26:26,314 - __main__ - INFO - Initializing HybridBail components...
+2025-10-05 15:26:26,840 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-05 15:26:26,841 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-05 15:26:27,337 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-05 15:26:29,351 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,352 - __main__ - INFO - Processing category: Anticipatory Bail
+2025-10-05 15:26:29,352 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,353 - __main__ - WARNING - Directory not found: ./pdf_dataset\anticipatory bail
+2025-10-05 15:26:29,353 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,353 - __main__ - INFO - Processing category: Regular Bail
+2025-10-05 15:26:29,353 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,354 - __main__ - WARNING - Directory not found: ./pdf_dataset\regular_bail
+2025-10-05 15:26:29,354 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,354 - __main__ - INFO - Processing category: Interim Bail
+2025-10-05 15:26:29,354 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,355 - __main__ - WARNING - Directory not found: ./pdf_dataset\interim bail
+2025-10-05 15:26:29,355 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,355 - __main__ - INFO - Processing category: Default Bail
+2025-10-05 15:26:29,355 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,355 - __main__ - WARNING - Directory not found: ./pdf_dataset\default_bail
+2025-10-05 15:26:29,355 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,355 - __main__ - INFO - Processing category: Bail Cancellation
+2025-10-05 15:26:29,356 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,356 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_cancellation
+2025-10-05 15:26:29,356 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,356 - __main__ - INFO - Processing category: Bail with Conditions
+2025-10-05 15:26:29,356 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,356 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_conditions
+2025-10-05 15:26:29,357 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,357 - __main__ - INFO - Processing category: NDPS Bail
+2025-10-05 15:26:29,357 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,357 - __main__ - WARNING - Directory not found: ./pdf_dataset\NDPS bail
+2025-10-05 15:26:29,358 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,358 - __main__ - INFO - Processing category: POCSO Bail
+2025-10-05 15:26:29,358 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,358 - __main__ - WARNING - Directory not found: ./pdf_dataset\POCSO bail
+2025-10-05 15:26:29,358 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,359 - __main__ - INFO - Processing category: UAPA Bail
+2025-10-05 15:26:29,359 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,360 - __main__ - WARNING - Directory not found: ./pdf_dataset\UAPA bail
+2025-10-05 15:26:29,360 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,361 - __main__ - INFO - Processing category: SC/ST Act Bail
+2025-10-05 15:26:29,361 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,361 - __main__ - WARNING - Directory not found: ./pdf_dataset\SC,ST Act bail
+2025-10-05 15:26:29,361 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,361 - __main__ - INFO - Processing category: High Court Bail
+2025-10-05 15:26:29,361 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,362 - __main__ - WARNING - Directory not found: ./pdf_dataset\high_court_bail
+2025-10-05 15:26:29,363 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,364 - __main__ - INFO - Processing category: Supreme Court Bail
+2025-10-05 15:26:29,365 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,365 - __main__ - WARNING - Directory not found: ./pdf_dataset\supreme_court_bail
+2025-10-05 15:26:29,366 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,366 - __main__ - INFO - Processing category: Judicial Discretion
+2025-10-05 15:26:29,366 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,367 - __main__ - WARNING - Directory not found: ./pdf_dataset\judicial_discretion
+2025-10-05 15:26:29,367 - __main__ - INFO - 
+============================================================
+2025-10-05 15:26:29,367 - __main__ - INFO - Processing category: Bail Precedent
+2025-10-05 15:26:29,367 - __main__ - INFO - ============================================================
+2025-10-05 15:26:29,367 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail precedent
+2025-10-05 15:33:54,510 - __main__ - INFO - ================================================================================
+2025-10-05 15:33:54,510 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-05 15:33:54,510 - __main__ - INFO - ================================================================================
+2025-10-05 15:33:54,511 - __main__ - INFO - Initializing HybridBail components...
+2025-10-05 15:33:55,036 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-05 15:33:55,037 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-05 15:33:55,555 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-05 15:33:56,508 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,508 - __main__ - INFO - Processing category: Anticipatory Bail
+2025-10-05 15:33:56,509 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,509 - __main__ - WARNING - Directory not found: ./pdf_dataset\anticipatory bail
+2025-10-05 15:33:56,509 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,510 - __main__ - INFO - Processing category: Regular Bail
+2025-10-05 15:33:56,510 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,510 - __main__ - WARNING - Directory not found: ./pdf_dataset\regular_bail
+2025-10-05 15:33:56,510 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,510 - __main__ - INFO - Processing category: Interim Bail
+2025-10-05 15:33:56,511 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,511 - __main__ - WARNING - Directory not found: ./pdf_dataset\interim bail
+2025-10-05 15:33:56,511 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,511 - __main__ - INFO - Processing category: Default Bail
+2025-10-05 15:33:56,511 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,512 - __main__ - WARNING - Directory not found: ./pdf_dataset\default_bail
+2025-10-05 15:33:56,512 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,512 - __main__ - INFO - Processing category: Bail Cancellation
+2025-10-05 15:33:56,512 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,512 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_cancellation
+2025-10-05 15:33:56,512 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,512 - __main__ - INFO - Processing category: Bail with Conditions
+2025-10-05 15:33:56,512 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,513 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail_conditions
+2025-10-05 15:33:56,513 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,513 - __main__ - INFO - Processing category: NDPS Bail
+2025-10-05 15:33:56,514 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,514 - __main__ - WARNING - Directory not found: ./pdf_dataset\NDPS bail
+2025-10-05 15:33:56,514 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,514 - __main__ - INFO - Processing category: POCSO Bail
+2025-10-05 15:33:56,516 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,516 - __main__ - WARNING - Directory not found: ./pdf_dataset\POCSO bail
+2025-10-05 15:33:56,516 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,517 - __main__ - INFO - Processing category: UAPA Bail
+2025-10-05 15:33:56,550 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,553 - __main__ - WARNING - Directory not found: ./pdf_dataset\UAPA bail
+2025-10-05 15:33:56,556 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,563 - __main__ - INFO - Processing category: SC/ST Act Bail
+2025-10-05 15:33:56,564 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,564 - __main__ - WARNING - Directory not found: ./pdf_dataset\SC,ST Act bail
+2025-10-05 15:33:56,565 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,565 - __main__ - INFO - Processing category: High Court Bail
+2025-10-05 15:33:56,566 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,566 - __main__ - WARNING - Directory not found: ./pdf_dataset\high_court_bail
+2025-10-05 15:33:56,566 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,566 - __main__ - INFO - Processing category: Supreme Court Bail
+2025-10-05 15:33:56,567 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,567 - __main__ - WARNING - Directory not found: ./pdf_dataset\supreme_court_bail
+2025-10-05 15:33:56,568 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,568 - __main__ - INFO - Processing category: Judicial Discretion
+2025-10-05 15:33:56,568 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,569 - __main__ - WARNING - Directory not found: ./pdf_dataset\judicial_discretion
+2025-10-05 15:33:56,569 - __main__ - INFO - 
+============================================================
+2025-10-05 15:33:56,569 - __main__ - INFO - Processing category: Bail Precedent
+2025-10-05 15:33:56,570 - __main__ - INFO - ============================================================
+2025-10-05 15:33:56,570 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail precedent
