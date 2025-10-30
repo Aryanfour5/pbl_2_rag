@@ -306,3 +306,95 @@
 2025-10-05 15:33:56,569 - __main__ - INFO - Processing category: Bail Precedent
 2025-10-05 15:33:56,570 - __main__ - INFO - ============================================================
 2025-10-05 15:33:56,570 - __main__ - WARNING - Directory not found: ./pdf_dataset\bail precedent
+2025-10-30 10:56:10,253 - __main__ - INFO - ================================================================================
+2025-10-30 10:56:10,253 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 10:56:10,253 - __main__ - INFO - ================================================================================
+2025-10-30 10:56:10,254 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 10:56:11,238 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 10:56:11,238 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 10:56:12,716 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 10:56:32,793 - __main__ - INFO - 
+============================================================
+2025-10-30 10:56:32,794 - __main__ - INFO - Processing category: Anticipatory Bail
+2025-10-30 10:56:32,794 - __main__ - INFO - ============================================================
+2025-10-30 10:56:32,803 - pdf_ingester - INFO - Found 50 PDF files in C:\\Me\\Main Bail Cases Folder\anticipatory bail
+2025-10-30 10:56:47,317 - __main__ - INFO - ================================================================================
+2025-10-30 10:56:47,317 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 10:56:47,317 - __main__ - INFO - ================================================================================
+2025-10-30 10:56:47,317 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 10:56:47,909 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 10:56:47,910 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 10:56:48,285 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 10:57:01,997 - __main__ - INFO - 
+============================================================
+2025-10-30 10:57:01,997 - __main__ - INFO - Processing bail application: C:\Athar_Pervez_vs_State_on_26_February_2016.PDF
+2025-10-30 10:57:01,997 - __main__ - INFO - ============================================================
+2025-10-30 10:57:02,556 - __main__ - INFO - Legal provisions: NDPS
+2025-10-30 10:57:02,560 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-10-30 10:57:02,562 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-10-30 10:57:06,773 - jina_embedder - INFO - Generated 1 embeddings
+2025-10-30 10:57:06,820 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 200 OK"
+2025-10-30 10:57:06,824 - __main__ - INFO - Retrieved 10 similar cases
+2025-10-30 10:57:06,824 - __main__ - INFO - Precedent analysis: Analyzed 10 similar precedent cases. Mixed outcomes: 0% granted, 0% denied.
+2025-10-30 10:57:06,825 - __main__ - INFO - Decision: HUMAN_INTERVENTION_REQUIRED (confidence: 89.79%)
+2025-10-30 10:59:07,043 - __main__ - INFO - ================================================================================
+2025-10-30 10:59:07,043 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 10:59:07,044 - __main__ - INFO - ================================================================================
+2025-10-30 10:59:07,044 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 10:59:07,654 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 10:59:07,655 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 10:59:08,066 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 10:59:12,993 - __main__ - INFO - 
+============================================================
+2025-10-30 10:59:12,994 - __main__ - INFO - Processing bail application: C:\Ankush_Kumar_Sonu_vs_State_Of_Punjab_on_9_August_2018.PDF
+2025-10-30 10:59:12,994 - __main__ - INFO - ============================================================
+2025-10-30 10:59:14,525 - __main__ - INFO - Legal provisions: NDPS
+2025-10-30 10:59:14,534 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-10-30 10:59:14,536 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-10-30 10:59:15,507 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-10-30 11:01:08,821 - __main__ - INFO - ================================================================================
+2025-10-30 11:01:08,821 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 11:01:08,821 - __main__ - INFO - ================================================================================
+2025-10-30 11:01:08,822 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 11:01:09,533 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 11:01:09,534 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 11:01:09,946 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 11:01:16,371 - __main__ - INFO - 
+============================================================
+2025-10-30 11:01:16,372 - __main__ - INFO - Processing bail application: C:\Ankush_Kumar_Sonu_vs_State_Of_Punjab_on_9_August_2018.PDF
+2025-10-30 11:01:16,372 - __main__ - INFO - ============================================================
+2025-10-30 11:01:17,895 - __main__ - INFO - Legal provisions: NDPS
+2025-10-30 11:01:17,905 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-10-30 11:01:17,907 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-10-30 11:01:18,836 - jina_embedder - ERROR - Jina API call failed: 401 Client Error: Unauthorized for url: https://api.jina.ai/v1/embeddings
+2025-10-30 11:01:24,800 - __main__ - INFO - ================================================================================
+2025-10-30 11:01:24,801 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 11:01:24,801 - __main__ - INFO - ================================================================================
+2025-10-30 11:01:24,801 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 11:01:25,415 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 11:01:25,416 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 11:01:25,801 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 11:01:37,161 - __main__ - INFO - 
+============================================================
+2025-10-30 11:01:37,161 - __main__ - INFO - Processing bail application: C:\Athar_Pervez_vs_State_on_26_February_2016.PDF
+2025-10-30 11:01:37,162 - __main__ - INFO - ============================================================
+2025-10-30 11:01:37,676 - __main__ - INFO - Legal provisions: NDPS
+2025-10-30 11:01:37,681 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-10-30 11:01:37,683 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-10-30 11:01:38,283 - jina_embedder - ERROR - Jina API call failed: 401 Client Error: Unauthorized for url: https://api.jina.ai/v1/embeddings
+2025-10-30 11:02:58,027 - __main__ - INFO - ================================================================================
+2025-10-30 11:02:58,027 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-10-30 11:02:58,028 - __main__ - INFO - ================================================================================
+2025-10-30 11:02:58,028 - __main__ - INFO - Initializing HybridBail components...
+2025-10-30 11:02:58,648 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-10-30 11:02:58,649 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-10-30 11:02:59,037 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-10-30 11:02:59,047 - __main__ - INFO - ✓ All components initialized
+2025-10-30 11:03:08,026 - __main__ - INFO - 
+============================================================
+2025-10-30 11:03:08,026 - __main__ - INFO - Processing bail application: C:\Ankush_Kumar_Sonu_vs_State_Of_Punjab_on_9_August_2018.PDF
+2025-10-30 11:03:08,026 - __main__ - INFO - ============================================================
+2025-10-30 11:03:09,515 - __main__ - INFO - Legal provisions: NDPS
+2025-10-30 11:03:09,524 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-10-30 11:03:09,528 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-10-30 11:03:10,355 - jina_embedder - ERROR - Jina API call failed: 401 Client Error: Unauthorized for url: https://api.jina.ai/v1/embeddings
