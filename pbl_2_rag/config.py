@@ -17,7 +17,7 @@ class HybridBailConfig:
     # ========================================================================
     # DATA SOURCE CONFIGURATION
     # ========================================================================
-    PDF_DIRECTORY: str = r"D:\BTech-Project\Main Bail Cases Folder"
+    PDF_DIRECTORY: str = r"D:\Main Bail Cases Folder-20250823T055958Z-1-001\Main Bail Cases Folder"
     USE_GOOGLE_DRIVE: bool = False
     GOOGLE_DRIVE_FOLDER_URL: Optional[str] = None
     GOOGLE_DRIVE_FOLDER_ID: Optional[str] = None
@@ -170,7 +170,7 @@ class HybridBailConfig:
         
         return cls(
             # Data sources
-            PDF_DIRECTORY=r"D:\\BTech-Project\\Main Bail Cases Folder",
+            PDF_DIRECTORY=r"D:\Main Bail Cases Folder-20250823T055958Z-1-001\Main Bail Cases Folder",
             USE_GOOGLE_DRIVE=os.getenv("USE_GOOGLE_DRIVE", "false").lower() == "true",
             GOOGLE_DRIVE_FOLDER_URL=os.getenv("GOOGLE_DRIVE_FOLDER_URL"),
             GOOGLE_DRIVE_FOLDER_ID=os.getenv("GOOGLE_DRIVE_FOLDER_ID"),
@@ -280,7 +280,8 @@ class HybridBailConfig:
     def get_category_path(self, category: str) -> str:
         """Get filesystem path for a category's PDFs."""
         folder_name = self.CATEGORY_FOLDERS.get(category, category)
-        return os.path.join(self.PDF_DIRECTORY, folder_name)
+        return os.path.join("D:\\Main Bail Cases Folder-20250823T055958Z-1-001\\Main Bail Cases Folder", folder_name)
+
     
     def __repr__(self) -> str:
         """String representation for debugging."""
