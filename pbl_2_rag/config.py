@@ -8,7 +8,7 @@ import logging
 from dataclasses import dataclass, field
 from typing import Dict, List, Optional
 
-logger = logging.getLogger(__name__)
+logger = logging.getLogger(__name__)  # FIXED: Double underscores
 
 @dataclass
 class HybridBailConfig:
@@ -17,7 +17,7 @@ class HybridBailConfig:
     # ========================================================================
     # DATA SOURCE CONFIGURATION
     # ========================================================================
-    PDF_DIRECTORY: str = r"D:\Main Bail Cases Folder-20250823T055958Z-1-001\Main Bail Cases Folder"
+    PDF_DIRECTORY: str = r"C:\Me\Main Bail Cases Folder"
     USE_GOOGLE_DRIVE: bool = False
     GOOGLE_DRIVE_FOLDER_URL: Optional[str] = None
     GOOGLE_DRIVE_FOLDER_ID: Optional[str] = None
@@ -84,11 +84,17 @@ class HybridBailConfig:
     # PROCESSING PARAMETERS
     # ========================================================================
     CHUNK_SIZE: int = 1000
-    OVERLAP_SIZE: int = 200
+    OVERLAP_SIZE: int = 200  # Primary attribute
     MIN_CHUNK_SIZE: int = 100
     MAX_CHUNK_SIZE: int = 2000
     BATCH_SIZE: int = 20
     EMBEDDING_BATCH_SIZE: int = 32
+    
+    # COMPATIBILITY ALIAS
+    @property
+    def CHUNK_OVERLAP(self):
+        """Alias for OVERLAP_SIZE for backwards compatibility."""
+        return self.OVERLAP_SIZE
     
     # ========================================================================
     # BAIL DECISION PARAMETERS
@@ -165,12 +171,9 @@ class HybridBailConfig:
         else:
             default_model = "gemini-2.0-flash-exp"
         
-        # Handle backwards compatibility with old env vars
-        #pdf_dir = os.getenv("PDF_DIRECTORY") or os.getenv("DRIVE_FOLDER_URL") or cls.PDF_DIRECTORY
-        
         return cls(
             # Data sources
-            PDF_DIRECTORY=r"D:\Main Bail Cases Folder-20250823T055958Z-1-001\Main Bail Cases Folder",
+            PDF_DIRECTORY=os.getenv("PDF_DIRECTORY", r"C:\Me\Main Bail Cases Folder"),
             USE_GOOGLE_DRIVE=os.getenv("USE_GOOGLE_DRIVE", "false").lower() == "true",
             GOOGLE_DRIVE_FOLDER_URL=os.getenv("GOOGLE_DRIVE_FOLDER_URL"),
             GOOGLE_DRIVE_FOLDER_ID=os.getenv("GOOGLE_DRIVE_FOLDER_ID"),
@@ -273,15 +276,12 @@ class HybridBailConfig:
     
     def get_collection_name(self, category: str) -> str:
         """Get Qdrant collection name for a category."""
-        if self.USE_MULTI_COLLECTION:
-            return f"{self.COLLECTION_PREFIX}_{category}"
-        return self.MASTER_COLLECTION_NAME
+        return "legal_documents"
     
     def get_category_path(self, category: str) -> str:
         """Get filesystem path for a category's PDFs."""
         folder_name = self.CATEGORY_FOLDERS.get(category, category)
-        return os.path.join("D:\\Main Bail Cases Folder-20250823T055958Z-1-001\\Main Bail Cases Folder", folder_name)
-
+        return os.path.join(self.PDF_DIRECTORY, folder_name)
     
     def __repr__(self) -> str:
         """String representation for debugging."""

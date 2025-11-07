@@ -15276,3 +15276,997 @@ b'{"status":{"error":"Not found: Collection `hybridbail_ndps_bail` doesn\'t exis
 2025-11-07 19:59:16,397 - jina_embedder - INFO - Generated 1 embeddings
 2025-11-07 19:59:20,512 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
 2025-11-07 19:59:30,644 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_195912_e623e71e.pdf
+2025-11-07 21:36:51,911 - pipeline - INFO - Initializing HybridBail components...
+2025-11-07 21:36:56,592 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 21:36:59,703 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 21:49:19,771 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_214919_ec921050)
+2025-11-07 21:49:19,772 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_214919_ec921050.pdf
+2025-11-07 21:49:19,953 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,954 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,954 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,955 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,955 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,956 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,957 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,957 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,957 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,958 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:19,959 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,721 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,721 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,723 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,723 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,723 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:20,723 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 21:49:22,557 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 21:49:26,650 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 21:49:37,248 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_214919_ec921050.pdf
+2025-11-07 22:33:33,540 - pipeline - INFO - Initializing HybridBail components...
+2025-11-07 22:33:37,838 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 22:33:39,109 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 22:33:52,896 - api - INFO - Processing bail application: Ankush_Kumar_Sonu_vs_State_Of_Punjab_on_9_August_2018.PDF (Case ID: BAIL_20251107_223352_492f8582)
+2025-11-07 22:33:52,896 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_223352_492f8582.pdf
+2025-11-07 22:33:52,941 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,941 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,942 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,942 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,942 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,944 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,944 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,945 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,945 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,946 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,947 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,947 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,947 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,948 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,948 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,949 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,949 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,950 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,950 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,950 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,952 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,952 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,953 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,954 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:52,954 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,959 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,959 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,960 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,960 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,960 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,960 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,961 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,961 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,961 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,961 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,961 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,962 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,962 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,962 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,962 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,962 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,963 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,963 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,963 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,963 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,963 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,964 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,964 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,964 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:54,964 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:33:56,391 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 22:33:56,391 - api - ERROR - Error processing bail application: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 22:34:47,028 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_223447_b1dc67b6)
+2025-11-07 22:34:47,028 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_223447_b1dc67b6.pdf
+2025-11-07 22:34:47,031 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,032 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,033 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,033 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,034 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,034 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,035 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,035 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,037 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,038 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,038 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,871 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,871 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,871 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,871 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,871 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:47,872 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:34:49,446 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:34:53,539 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:35:08,668 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_223447_b1dc67b6.pdf
+2025-11-07 22:37:26,658 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_223726_4ba63191)
+2025-11-07 22:37:26,658 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_223726_4ba63191.pdf
+2025-11-07 22:37:26,660 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,660 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,661 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,661 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,661 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,662 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,662 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,663 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,663 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,664 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:26,664 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,360 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,360 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,363 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,363 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,363 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:27,363 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:37:28,694 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:37:32,758 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:37:41,501 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_223726_4ba63191.pdf
+2025-11-07 22:40:29,625 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_224029_6669e628)
+2025-11-07 22:40:29,626 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_224029_6669e628.pdf
+2025-11-07 22:40:29,627 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,628 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,629 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,629 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,630 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,630 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,632 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,632 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:29,633 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,429 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,429 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,429 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,429 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,430 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,430 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,430 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,430 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,430 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,431 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:30,431 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:40:31,973 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:40:36,085 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:40:44,493 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_224029_6669e628.pdf
+2025-11-07 22:43:38,603 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_224338_209fe55b)
+2025-11-07 22:43:38,604 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_224338_209fe55b.pdf
+2025-11-07 22:43:38,606 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,606 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,607 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,607 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,608 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,608 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,609 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,609 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,610 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,610 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:38,610 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,393 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,393 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,393 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,394 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,394 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,394 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,394 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,394 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,395 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,395 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:39,395 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:43:40,827 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:43:44,931 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:43:54,480 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_224338_209fe55b.pdf
+2025-11-07 22:45:33,549 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_224533_23a4abca)
+2025-11-07 22:45:33,549 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_224533_23a4abca.pdf
+2025-11-07 22:45:33,551 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,551 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,552 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,552 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,553 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,553 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,554 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,554 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,556 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,556 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:33,557 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,332 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:34,335 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:45:35,868 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:45:39,963 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:45:49,538 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_224533_23a4abca.pdf
+2025-11-07 22:51:54,225 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_225154_1495ebfb)
+2025-11-07 22:51:54,226 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_225154_1495ebfb.pdf
+2025-11-07 22:51:54,227 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,228 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,229 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,229 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,230 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,230 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,230 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,231 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,231 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,231 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,232 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,993 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,994 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,994 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,994 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,994 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:54,995 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:51:56,638 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:52:00,748 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:52:09,284 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_225154_1495ebfb.pdf
+2025-11-07 22:52:24,611 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_225224_a30d042c)
+2025-11-07 22:52:24,611 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_225224_a30d042c.pdf
+2025-11-07 22:52:24,613 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,613 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,614 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,615 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,615 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,615 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,617 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,618 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,618 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,619 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:24,619 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,432 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,432 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,433 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,433 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,433 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,433 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,433 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,434 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,434 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,434 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:25,434 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:52:27,214 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:52:31,296 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:52:51,098 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_225224_a30d042c.pdf
+2025-11-07 22:53:24,539 - api - INFO - Processing bail application: Athar_Pervez_vs_State_on_26_February_2016.PDF (Case ID: BAIL_20251107_225324_a6e4a4e5)
+2025-11-07 22:53:24,539 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_225324_a6e4a4e5.pdf
+2025-11-07 22:53:24,540 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,541 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,541 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,542 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,542 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,544 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,544 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:24,545 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,213 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,213 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,213 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,214 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,214 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,214 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,214 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:25,214 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:53:26,874 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:53:30,982 - qdrant_database - ERROR - Error searching in 'hybridbail_ndps_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:53:40,843 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_225324_a6e4a4e5.pdf
+2025-11-07 22:58:02,898 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_225802_d4b4f5e8)
+2025-11-07 22:58:02,899 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_225802_d4b4f5e8.pdf
+2025-11-07 22:58:02,900 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,901 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,901 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,902 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,902 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,903 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,903 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,906 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,907 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,907 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:02,907 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,705 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:03,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 22:58:05,271 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 22:58:09,406 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 22:58:18,878 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_225802_d4b4f5e8.pdf
+2025-11-07 23:06:22,707 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_230622_0a75ed23)
+2025-11-07 23:06:22,708 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_230622_0a75ed23.pdf
+2025-11-07 23:06:22,709 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,709 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,710 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,710 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,711 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,711 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,712 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,712 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,713 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,713 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:22,714 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,349 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,350 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,350 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,350 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,350 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,351 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,351 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,351 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,351 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,352 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:23,352 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:06:24,801 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 23:06:28,880 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 23:06:39,041 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_230622_0a75ed23.pdf
+2025-11-07 23:44:00,503 - api - INFO - Processing bail application: Anticipatory-Bail-Application-by-Accused.pdf (Case ID: BAIL_20251107_234400_6f12a7cf)
+2025-11-07 23:44:00,503 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_234400_6f12a7cf.pdf
+2025-11-07 23:44:00,507 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,509 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,511 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,513 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,515 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,517 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,517 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,520 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,522 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,523 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:00,525 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,641 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,642 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,642 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,644 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,644 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,645 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,645 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,645 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,646 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,646 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:03,646 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:44:05,150 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 23:44:09,253 - qdrant_database - ERROR - Error searching in 'hybridbail_anticipatory_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 23:44:17,449 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_234400_6f12a7cf.pdf
+2025-11-07 23:45:04,705 - api - INFO - Processing bail application: Ankush_Kumar_Sonu_vs_State_Of_Punjab_on_9_August_2018.PDF (Case ID: BAIL_20251107_234504_97415656)
+2025-11-07 23:45:04,705 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_234504_97415656.pdf
+2025-11-07 23:45:04,714 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,716 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,717 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,719 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,719 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,722 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,724 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,725 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,727 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,728 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,729 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,730 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,733 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,735 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,736 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,739 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,740 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,742 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,743 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,745 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,745 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,747 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,748 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,751 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:04,753 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,497 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,497 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,498 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,498 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,499 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,499 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,500 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,500 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,500 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,502 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,503 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,503 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,504 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,504 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,505 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,505 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,506 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,506 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,506 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,507 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,507 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,509 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,509 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,509 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:11,510 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:45:13,310 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 23:45:13,310 - api - ERROR - Error processing bail application: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 23:48:27,406 - api - INFO - Processing bail application: Athar_Pervez_vs_State_on_26_February_2016.PDF (Case ID: BAIL_20251107_234827_ac9a0caa)
+2025-11-07 23:48:27,407 - pipeline - INFO - Processing bail application: temp_uploads\BAIL_20251107_234827_ac9a0caa.pdf
+2025-11-07 23:48:27,413 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,415 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,417 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,420 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,425 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,429 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,432 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:27,436 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,704 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,705 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,705 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,706 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,707 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,708 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:29,708 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-07 23:48:32,106 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 23:48:36,198 - qdrant_database - ERROR - Error searching in 'hybridbail_ndps_bail': [WinError 10061] No connection could be made because the target machine actively refused it
+2025-11-07 23:48:37,976 - llm_integration - ERROR - LLM call failed: 429 Resource exhausted. Please try again later. Please refer to https://cloud.google.com/vertex-ai/generative-ai/docs/error-code-429 for more details.
+2025-11-07 23:48:38,035 - api - INFO - Cleaned up temp file: temp_uploads\BAIL_20251107_234827_ac9a0caa.pdf
+2025-11-08 00:00:41,432 - pipeline - INFO - Initializing HybridBail components...
+2025-11-08 00:00:46,251 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:00:50,336 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:21:13,395 - pipeline - INFO - Initializing HybridBail components...
+2025-11-08 00:21:14,125 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-08 00:21:14,127 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:21:17,268 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:23:04,807 - pipeline - INFO - ================================================================================
+2025-11-08 00:23:04,807 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:23:04,808 - pipeline - INFO - ================================================================================
+2025-11-08 00:23:08,475 - pipeline - INFO - ================================================================================
+2025-11-08 00:23:08,475 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:23:08,475 - pipeline - INFO - ================================================================================
+2025-11-08 00:23:34,665 - pipeline - INFO - ================================================================================
+2025-11-08 00:23:34,665 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:23:34,665 - pipeline - INFO - ================================================================================
+2025-11-08 00:24:41,613 - pipeline - INFO - ================================================================================
+2025-11-08 00:24:41,613 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:24:41,614 - pipeline - INFO - ================================================================================
+2025-11-08 00:25:42,865 - pipeline - INFO - ================================================================================
+2025-11-08 00:25:42,866 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:25:42,866 - pipeline - INFO - ================================================================================
+2025-11-08 00:25:42,866 - pdf_ingester - INFO - Created PDF directory: pdf_dataset
+2025-11-08 00:28:52,137 - pipeline - INFO - ================================================================================
+2025-11-08 00:28:52,138 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:28:52,138 - pipeline - INFO - ================================================================================
+2025-11-08 00:28:52,138 - pdf_ingester - INFO - Created PDF directory: C:\Me\Main Bail Cases Folder
+2025-11-08 00:31:35,650 - pipeline - INFO - ================================================================================
+2025-11-08 00:31:35,650 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:31:35,650 - pipeline - INFO - ================================================================================
+2025-11-08 00:31:36,090 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-08 00:31:36,091 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:31:37,644 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:31:37,670 - pipeline - INFO - ================================================================================
+2025-11-08 00:31:37,673 - pipeline - INFO - ================================================================================
+2025-11-08 00:32:06,413 - pipeline - INFO - ================================================================================
+2025-11-08 00:32:06,413 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:32:06,413 - pipeline - INFO - ================================================================================
+2025-11-08 00:32:06,757 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-08 00:32:06,759 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:32:07,698 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:32:07,715 - pipeline - INFO - ================================================================================
+2025-11-08 00:32:07,720 - pipeline - INFO - ================================================================================
+2025-11-08 00:32:12,975 - pipeline - INFO - 
+============================================================
+2025-11-08 00:32:12,975 - pipeline - INFO - Processing bail application: BAIL_20251108_003212_e98513ab.pdf
+2025-11-08 00:32:12,975 - pipeline - INFO - ============================================================
+2025-11-08 00:32:12,975 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:32:13,050 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,051 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,052 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,052 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,053 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,053 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,054 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,054 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,055 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,055 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,056 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,056 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,057 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,059 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,060 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,060 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,062 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,063 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,064 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,064 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,064 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,066 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,067 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,068 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:13,068 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,266 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,267 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,267 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,268 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,269 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,271 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,271 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,271 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,271 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,272 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,272 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:32:17,488 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:32:17,561 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:32:17,603 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:32:17,628 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:32:17,629 - text_chunker - INFO - Created 100 chunks from text of length 79475
+2025-11-08 00:32:17,641 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:32:19,893 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:22,174 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:24,258 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:25,282 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:26,073 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:28,323 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:30,058 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:31,704 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:33,713 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:35,509 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:32:35,569 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:32:35,595 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 404 Not Found"
+2025-11-08 00:32:35,596 - qdrant_database - ERROR - Error searching in 'hybridbail_ndps_bail': Unexpected Response: 404 (Not Found)
+Raw response content:
+b'{"status":{"error":"Not found: Collection `hybridbail_ndps_bail` doesn\'t exist!"},"time":0.000421129}'
+2025-11-08 00:32:35,618 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:32:35,640 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:32:35,686 - pipeline - WARNING -   Reasons: No similar precedents found - requires judicial assessment
+2025-11-08 00:32:35,687 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:32:46,524 - pipeline - INFO - Compiling final report...
+2025-11-08 00:32:46,893 - pipeline - INFO - ============================================================
+2025-11-08 00:32:46,900 - pipeline - INFO - ============================================================
+2025-11-08 00:39:28,754 - pipeline - INFO - 
+============================================================
+2025-11-08 00:39:28,755 - pipeline - INFO - Processing bail application: BAIL_20251108_003928_67e8646e.pdf
+2025-11-08 00:39:28,755 - pipeline - INFO - ============================================================
+2025-11-08 00:39:28,755 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:39:28,758 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,759 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,759 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,760 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,760 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,761 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,761 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,761 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,763 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,763 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,764 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,764 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,764 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,766 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,767 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,767 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,768 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,768 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,769 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:28,769 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,628 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,628 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,628 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,629 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,629 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,630 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,630 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,630 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,631 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,632 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,633 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,633 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,633 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,633 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,634 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,634 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:39:31,654 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:39:31,714 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:39:31,759 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:39:31,778 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:39:31,779 - text_chunker - INFO - Created 78 chunks from text of length 61982
+2025-11-08 00:39:31,787 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:39:34,642 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:38,565 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:40,905 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:44,304 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:46,579 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:49,607 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:51,841 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:39:54,091 - jina_embedder - INFO - Generated 8 embeddings
+2025-11-08 00:39:54,106 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:39:54,154 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 404 Not Found"
+2025-11-08 00:39:54,155 - qdrant_database - ERROR - Error searching in 'hybridbail_ndps_bail': Unexpected Response: 404 (Not Found)
+Raw response content:
+b'{"status":{"error":"Not found: Collection `hybridbail_ndps_bail` doesn\'t exist!"},"time":0.000042154}'
+2025-11-08 00:39:54,160 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:39:54,165 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:39:54,183 - pipeline - WARNING -   Reasons: No similar precedents found - requires judicial assessment
+2025-11-08 00:39:54,185 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:40:03,943 - pipeline - INFO - Compiling final report...
+2025-11-08 00:40:03,948 - pipeline - INFO - ============================================================
+2025-11-08 00:40:03,955 - pipeline - INFO - ============================================================
+2025-11-08 00:41:07,157 - pipeline - INFO - 
+============================================================
+2025-11-08 00:41:07,157 - pipeline - INFO - Processing bail application: BAIL_20251108_004107_5af4f60c.pdf
+2025-11-08 00:41:07,157 - pipeline - INFO - ============================================================
+2025-11-08 00:41:07,157 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:41:07,160 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,162 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,162 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,163 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,163 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,163 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,165 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,165 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,920 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,921 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,921 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,921 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,922 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,922 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,922 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,922 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:41:07,929 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:41:07,956 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:41:07,983 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:41:07,998 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:41:07,998 - text_chunker - INFO - Created 31 chunks from text of length 24096
+2025-11-08 00:41:08,007 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:41:13,559 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:41:16,672 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:41:18,901 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:41:19,602 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-08 00:41:19,625 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:41:19,647 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 404 Not Found"
+2025-11-08 00:41:19,648 - qdrant_database - ERROR - Error searching in 'hybridbail_ndps_bail': Unexpected Response: 404 (Not Found)
+Raw response content:
+b'{"status":{"error":"Not found: Collection `hybridbail_ndps_bail` doesn\'t exist!"},"time":2.826e-6}'
+2025-11-08 00:41:19,658 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:41:19,669 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:41:19,708 - pipeline - WARNING -   Reasons: No similar precedents found - requires judicial assessment
+2025-11-08 00:41:19,708 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:41:27,823 - pipeline - INFO - Compiling final report...
+2025-11-08 00:41:27,827 - pipeline - INFO - ============================================================
+2025-11-08 00:41:27,834 - pipeline - INFO - ============================================================
+2025-11-08 00:49:06,689 - pipeline - INFO - ================================================================================
+2025-11-08 00:49:06,689 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:49:06,689 - pipeline - INFO - ================================================================================
+2025-11-08 00:49:07,026 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-08 00:49:07,027 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:49:08,194 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:49:08,216 - pipeline - INFO - ================================================================================
+2025-11-08 00:49:08,219 - pipeline - INFO - ================================================================================
+2025-11-08 00:49:22,223 - pipeline - INFO - 
+============================================================
+2025-11-08 00:49:22,225 - pipeline - INFO - Processing bail application: BAIL_20251108_004922_85955123.pdf
+2025-11-08 00:49:22,225 - pipeline - INFO - ============================================================
+2025-11-08 00:49:22,225 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:49:22,308 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,309 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,309 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,310 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,311 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,312 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,312 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,314 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,315 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,315 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,317 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,318 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,320 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,321 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,321 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,322 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,324 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,327 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,330 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:22,332 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,120 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,121 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,121 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,121 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,122 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,122 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,122 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,123 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,123 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,123 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,124 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,124 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,124 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,124 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,125 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,125 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,125 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,125 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,126 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,126 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:49:25,262 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:49:25,376 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:49:25,413 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:49:25,438 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:49:25,439 - text_chunker - INFO - Created 78 chunks from text of length 61982
+2025-11-08 00:49:25,446 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:49:27,473 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:29,628 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:30,937 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:33,065 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:34,264 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:36,318 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:38,126 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:49:40,057 - jina_embedder - INFO - Generated 8 embeddings
+2025-11-08 00:49:40,074 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:49:40,340 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/legal_documents/points/search "HTTP/1.1 200 OK"
+2025-11-08 00:49:40,369 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:49:40,381 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:49:40,417 - pipeline - WARNING -   Reasons: 
+2025-11-08 00:49:40,418 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:49:49,495 - pipeline - INFO - Compiling final report...
+2025-11-08 00:49:50,020 - pipeline - INFO - ============================================================
+2025-11-08 00:49:50,026 - pipeline - INFO - ============================================================
+2025-11-08 00:53:35,243 - pipeline - INFO - ================================================================================
+2025-11-08 00:53:35,244 - pipeline - INFO - Initializing HybridBail Pipeline Components
+2025-11-08 00:53:35,244 - pipeline - INFO - ================================================================================
+2025-11-08 00:53:35,700 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-08 00:53:35,701 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-08 00:53:35,732 - decision_engine - INFO - [OK] BailDecisionEngine initialized
+2025-11-08 00:53:35,732 - decision_engine - INFO - [INFO] Grant threshold: 85%
+2025-11-08 00:53:35,732 - decision_engine - INFO - [INFO] Deny threshold: 15%
+2025-11-08 00:53:36,548 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-08 00:53:36,568 - pipeline - INFO - ================================================================================
+2025-11-08 00:53:36,573 - pipeline - INFO - ================================================================================
+2025-11-08 00:54:12,948 - pipeline - INFO - 
+============================================================
+2025-11-08 00:54:12,948 - pipeline - INFO - Processing bail application: BAIL_20251108_005412_aa8de561.pdf
+2025-11-08 00:54:12,948 - pipeline - INFO - ============================================================
+2025-11-08 00:54:12,948 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:54:13,003 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,004 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,006 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,006 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,009 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,010 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,011 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,012 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,015 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,016 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,016 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,018 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,019 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,020 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,021 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,022 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,023 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,026 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,027 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:13,029 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,329 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,329 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,329 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,329 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,329 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,331 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,333 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,334 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:54:15,524 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:54:15,619 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:54:15,654 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:54:15,671 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:54:15,671 - text_chunker - INFO - Created 78 chunks from text of length 61982
+2025-11-08 00:54:15,679 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:54:17,658 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:19,747 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:20,883 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:23,042 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:24,952 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:26,634 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:28,366 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:54:30,909 - jina_embedder - INFO - Generated 8 embeddings
+2025-11-08 00:54:30,944 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:54:30,979 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/legal_documents/points/search "HTTP/1.1 200 OK"
+2025-11-08 00:54:31,000 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:54:31,018 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:54:31,019 - decision_engine - INFO - [DECISION] Analyzing 10 similar cases
+2025-11-08 00:54:31,019 - decision_engine - INFO - [LOGIC] Grant rate: 0%, Has conflicts: False
+2025-11-08 00:54:31,020 - decision_engine - INFO - [DECISION] DENY - 0% of similar cases granted
+2025-11-08 00:54:31,020 - decision_engine - INFO - [RESULT] Recommendation: DENY_BAIL (confidence: 88%)
+2025-11-08 00:54:31,048 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:54:39,800 - pipeline - INFO - Compiling final report...
+2025-11-08 00:54:40,263 - pipeline - INFO - ============================================================
+2025-11-08 00:54:40,269 - pipeline - INFO - ============================================================
+2025-11-08 00:57:38,875 - pipeline - INFO - 
+============================================================
+2025-11-08 00:57:38,875 - pipeline - INFO - Processing bail application: BAIL_20251108_005738_2e70cea9.pdf
+2025-11-08 00:57:38,876 - pipeline - INFO - ============================================================
+2025-11-08 00:57:38,876 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:57:38,878 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,878 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,879 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,880 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,881 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,881 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,882 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,882 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,882 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,883 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,883 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,883 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,885 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,885 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,885 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,886 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,886 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,886 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,887 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:38,887 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,572 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,573 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,573 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,573 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,573 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,573 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,574 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,575 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,576 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,576 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:57:40,584 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:57:40,614 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:57:40,639 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:57:40,651 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:57:40,651 - text_chunker - INFO - Created 78 chunks from text of length 61982
+2025-11-08 00:57:40,657 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:57:42,803 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:45,717 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:48,122 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:50,324 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:52,133 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:54,206 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:55,259 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:57:56,668 - jina_embedder - INFO - Generated 8 embeddings
+2025-11-08 00:57:56,683 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:57:56,712 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/legal_documents/points/search "HTTP/1.1 200 OK"
+2025-11-08 00:57:56,720 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:57:56,726 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:57:56,726 - decision_engine - INFO - [DECISION] Analyzing 10 similar cases
+2025-11-08 00:57:56,727 - decision_engine - INFO - [LOGIC] Grant rate: 0%, Has conflicts: False
+2025-11-08 00:57:56,727 - decision_engine - INFO - [DECISION] DENY - 0% of similar cases granted
+2025-11-08 00:57:56,727 - decision_engine - INFO - [RESULT] Recommendation: DENY_BAIL (confidence: 88%)
+2025-11-08 00:57:56,751 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:58:05,192 - pipeline - INFO - Compiling final report...
+2025-11-08 00:58:05,196 - pipeline - INFO - ============================================================
+2025-11-08 00:58:05,202 - pipeline - INFO - ============================================================
+2025-11-08 00:58:57,353 - pipeline - INFO - 
+============================================================
+2025-11-08 00:58:57,353 - pipeline - INFO - Processing bail application: BAIL_20251108_005857_1eb9fb4c.pdf
+2025-11-08 00:58:57,353 - pipeline - INFO - ============================================================
+2025-11-08 00:58:57,353 - pipeline - INFO - Step 1: Extracting PDF...
+2025-11-08 00:58:57,357 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,357 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,359 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,360 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,361 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,363 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,364 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,366 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,367 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,367 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,368 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,369 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,371 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,371 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,371 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,372 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,374 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,374 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:57,375 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,811 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,812 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,812 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,813 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,814 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,816 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,816 - pdfminer.pdfpage - WARNING - CropBox missing from /Page, defaulting to MediaBox
+2025-11-08 00:58:59,823 - pipeline - INFO - Step 2: Parsing legal provisions...
+2025-11-08 00:58:59,853 - pipeline - INFO - Step 3: Extracting case attributes...
+2025-11-08 00:58:59,877 - pipeline - INFO - Step 4: Classifying bail category...
+2025-11-08 00:58:59,889 - pipeline - INFO - Step 5: Chunking document for semantic analysis...
+2025-11-08 00:58:59,889 - text_chunker - INFO - Created 78 chunks from text of length 61982
+2025-11-08 00:58:59,894 - pipeline - INFO - Step 6: Generating embeddings...
+2025-11-08 00:59:01,548 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:03,205 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:04,352 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:05,923 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:08,174 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:10,300 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:12,032 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-08 00:59:13,340 - jina_embedder - INFO - Generated 8 embeddings
+2025-11-08 00:59:13,356 - pipeline - INFO - Step 7: Searching for similar precedents...
+2025-11-08 00:59:13,397 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/legal_documents/points/search "HTTP/1.1 200 OK"
+2025-11-08 00:59:13,407 - pipeline - INFO - Step 8: Analyzing precedent patterns...
+2025-11-08 00:59:13,414 - pipeline - INFO - Step 9: Generating bail decision...
+2025-11-08 00:59:13,415 - decision_engine - INFO - [DECISION] Analyzing 10 similar cases
+2025-11-08 00:59:13,415 - decision_engine - INFO - [LOGIC] Grant rate: 0%, Has conflicts: False
+2025-11-08 00:59:13,415 - decision_engine - INFO - [DECISION] DENY - 0% of similar cases granted
+2025-11-08 00:59:13,415 - decision_engine - INFO - [RESULT] Recommendation: DENY_BAIL (confidence: 88%)
+2025-11-08 00:59:13,445 - pipeline - INFO - Step 10: Generating detailed legal reasoning...
+2025-11-08 00:59:22,053 - pipeline - INFO - Compiling final report...
+2025-11-08 00:59:22,058 - pipeline - INFO - ============================================================
+2025-11-08 00:59:22,063 - pipeline - INFO - ============================================================

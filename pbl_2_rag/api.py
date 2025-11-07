@@ -1,4 +1,11 @@
-from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks
+# api.py
+
+"""
+HybridBail FastAPI Backend
+District Court Bail Decision Support System
+"""
+
+from fastapi import FastAPI, File, UploadFile, HTTPException, BackgroundTasks, Query
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import Dict, List, Optional
@@ -15,14 +22,15 @@ from constants import BAIL_CATEGORIES
 
 logger = logging.getLogger(__name__)
 
-# Initialize FastAPI app
+# ==================== INITIALIZATION ====================
+
 app = FastAPI(
     title="HybridBail API",
     description="District Court Bail Decision Support System",
-    version="1.0.0"
+    version="2.0.0"
 )
 
-# CORS middleware for frontend integration
+# CORS Middleware
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -31,7 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Initialize configuration and pipeline
+# Initialize config and pipeline
 config = HybridBailConfig.from_env()
 setup_logging(config.LOG_LEVEL, config.LOG_FILE)
 pipeline = HybridBailPipeline(config)
@@ -40,8 +48,11 @@ pipeline = HybridBailPipeline(config)
 UPLOAD_DIR = Path("temp_uploads")
 UPLOAD_DIR.mkdir(exist_ok=True)
 
+# In-memory processing status tracking
+processing_tasks = {}
 
-# Response Models
+# ==================== RESPONSE MODELS ====================
+
 class BailDecisionResponse(BaseModel):
     case_id: str
     filename: str
@@ -54,6 +65,7 @@ class BailDecisionResponse(BaseModel):
     precedent_summary: str
     detailed_reasoning: str
     timestamp: str
+    processing_metadata: Dict
 
 
 class ProcessingStatus(BaseModel):
@@ -74,31 +86,39 @@ class HealthResponse(BaseModel):
     components: Dict[str, str]
 
 
-# In-memory storage for processing status
-processing_tasks = {}
+class DocumentIndexResponse(BaseModel):
+    status: str
+    message: str
+    timestamp: str
 
+
+# ==================== HEALTH & INFO ENDPOINTS ====================
 
 @app.get("/", tags=["Health"])
 async def root():
     """Root endpoint."""
     return {
-        "message": "HybridBail API",
-        "version": "1.0.0",
-        "docs": "/docs"
+        "message": "HybridBail API v2.0",
+        "docs": "/docs",
+        "description": "District Court Bail Decision Support System"
     }
 
 
 @app.get("/health", response_model=HealthResponse, tags=["Health"])
 async def health_check():
     """Health check endpoint."""
+    logger.info("🏥 Health check requested")
     return {
         "status": "healthy",
-        "version": "1.0.0",
+        "version": "2.0.0",
         "components": {
             "pdf_ingester": "ready",
+            "text_chunker": "ready",
+            "embedder": "ready",
             "vector_db": "ready",
-            "llm": "ready",
-            "classifier": "ready"
+            "classifier": "ready",
+            "decision_engine": "ready",
+            "llm": "ready"
         }
     }
 
@@ -106,6 +126,7 @@ async def health_check():
 @app.get("/categories", response_model=List[CategoryInfo], tags=["Reference"])
 async def get_categories():
     """Get all bail categories."""
+    logger.info("📋 Categories requested")
     categories = []
     for cat_id, cat_info in BAIL_CATEGORIES.items():
         categories.append({
@@ -116,6 +137,8 @@ async def get_categories():
     return categories
 
 
+# ==================== DOCUMENT PROCESSING ENDPOINTS ====================
+
 @app.post("/process-bail", response_model=BailDecisionResponse, tags=["Bail Processing"])
 async def process_bail_application(
     file: UploadFile = File(...),
@@ -124,28 +147,51 @@ async def process_bail_application(
     """
     Process a bail application PDF and generate decision.
     
-    - **file**: PDF file of the bail application
+    Complete workflow:
+    1. Extract PDF text
+    2. Parse legal provisions
+    3. Extract accused attributes
+    4. Chunk document (400 words + 50 word overlap)
+    5. Generate 768D embeddings
+    6. Search similar precedents
+    7. Generate bail decision
+    8. Create detailed reasoning
+    
+    Args:
+        file: PDF file of the bail application
+        
+    Returns:
+        Comprehensive bail decision report
     """
-    # Validate file type
-    if not file.filename.endswith('.pdf'):
+    
+    # ===== VALIDATION =====
+    if not file.filename:
+        logger.error("No file provided")
+        raise HTTPException(status_code=400, detail="No file provided")
+    
+    filename_lower = file.filename.lower()
+    if not filename_lower.endswith('.pdf'):
+        logger.error(f"Invalid file type: {filename_lower}")
         raise HTTPException(status_code=400, detail="Only PDF files are accepted")
     
-    # Generate unique case ID
+    # ===== GENERATE CASE ID =====
     case_id = f"BAIL_{datetime.now().strftime('%Y%m%d_%H%M%S')}_{uuid.uuid4().hex[:8]}"
+    logger.info(f"📥 New request - Case ID: {case_id}")
+    logger.info(f"📄 Filename: {file.filename}")
     
-    # Save uploaded file temporarily
+    # ===== SAVE TEMPORARILY =====
     temp_path = UPLOAD_DIR / f"{case_id}.pdf"
     
     try:
         with temp_path.open("wb") as buffer:
             shutil.copyfileobj(file.file, buffer)
+        logger.info(f"💾 File saved temporarily: {temp_path}")
         
-        logger.info(f"Processing bail application: {file.filename} (Case ID: {case_id})")
-        
-        # Process the bail application
+        # ===== PROCESS WITH PIPELINE =====
+        logger.info(f"🔄 Starting pipeline processing...")
         result = pipeline.process_bail_application(str(temp_path))
         
-        # Format response
+        # ===== FORMAT RESPONSE =====
         response = {
             "case_id": case_id,
             "filename": file.filename,
@@ -164,34 +210,40 @@ async def process_bail_application(
             ],
             "precedent_summary": result['precedent_analysis']['summary'],
             "detailed_reasoning": result['detailed_reasoning'],
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
+            "processing_metadata": result['processing_metadata']
         }
         
-        # Schedule cleanup of temp file
+        logger.info(f"✅ Processing complete for case {case_id}")
+        
+        # ===== SCHEDULE CLEANUP =====
         if background_tasks:
             background_tasks.add_task(cleanup_temp_file, temp_path)
         
         return response
     
     except Exception as e:
-        logger.error(f"Error processing bail application: {e}")
-        # Cleanup on error
+        logger.error(f"❌ Error processing {case_id}: {e}", exc_info=True)
         if temp_path.exists():
             temp_path.unlink()
         raise HTTPException(status_code=500, detail=f"Processing failed: {str(e)}")
 
 
-@app.post("/process-bail-async", response_model=ProcessingStatus, tags=["Bail Processing"])
+@app.post(
+    "/process-bail-async",
+    response_model=ProcessingStatus,
+    tags=["Bail Processing"]
+)
 async def process_bail_application_async(
     file: UploadFile = File(...),
     background_tasks: BackgroundTasks = None
 ):
     """
-    Process a bail application asynchronously (for large files or slow processing).
+    Process bail application asynchronously (for large files).
     
-    - **file**: PDF file of the bail application
     Returns a case_id to check status later.
     """
+    
     if not file.filename.endswith('.pdf'):
         raise HTTPException(status_code=400, detail="Only PDF files are accepted")
     
@@ -209,8 +261,15 @@ async def process_bail_application_async(
             "started_at": datetime.now().isoformat()
         }
         
+        logger.info(f"📥 Async processing started: {case_id}")
+        
         # Add background task
-        background_tasks.add_task(process_bail_background, case_id, str(temp_path), file.filename)
+        background_tasks.add_task(
+            process_bail_background,
+            case_id,
+            str(temp_path),
+            file.filename
+        )
         
         return {
             "case_id": case_id,
@@ -219,7 +278,7 @@ async def process_bail_application_async(
         }
     
     except Exception as e:
-        logger.error(f"Error submitting bail application: {e}")
+        logger.error(f"Error submitting {case_id}: {e}")
         if temp_path.exists():
             temp_path.unlink()
         raise HTTPException(status_code=500, detail=f"Submission failed: {str(e)}")
@@ -234,26 +293,41 @@ async def get_processing_status(case_id: str):
     return processing_tasks[case_id]
 
 
-@app.post("/index-documents", tags=["Administration"])
+# ==================== DOCUMENT INDEXING ENDPOINTS ====================
+
+@app.post("/index-documents", response_model=DocumentIndexResponse, tags=["Administration"])
 async def index_documents(
-    category: Optional[str] = None,
+    category: Optional[str] = Query(None, description="Specific category to index"),
     background_tasks: BackgroundTasks = None
 ):
     """
     Index bail case documents into the vector database.
     
-    - **category**: Optional specific category to index (indexes all if not provided)
+    Workflow:
+    1. Extract PDFs from category folders
+    2. Parse legal provisions
+    3. Extract attributes
+    4. Chunk documents (400 words + overlap)
+    5. Generate 768D embeddings
+    6. Store in Qdrant
+    
+    Args:
+        category: Optional specific category (indexes all if not provided)
     """
+    
     try:
         if category and category not in BAIL_CATEGORIES:
             raise HTTPException(status_code=400, detail=f"Invalid category: {category}")
+        
+        logger.info(f"📚 Document indexing started - Category: {category or 'ALL'}")
         
         # Run indexing in background
         background_tasks.add_task(index_documents_background, category)
         
         return {
             "status": "started",
-            "message": f"Document indexing started for category: {category or 'all'}"
+            "message": f"Document indexing started for: {category or 'all categories'}",
+            "timestamp": datetime.now().isoformat()
         }
     
     except Exception as e:
@@ -266,14 +340,18 @@ async def delete_case(case_id: str):
     """Delete a processed case from memory."""
     if case_id in processing_tasks:
         del processing_tasks[case_id]
+        logger.info(f"🗑️  Case deleted: {case_id}")
         return {"status": "deleted", "case_id": case_id}
     raise HTTPException(status_code=404, detail="Case ID not found")
 
 
-# Background task functions
+# ==================== BACKGROUND TASKS ====================
+
 def process_bail_background(case_id: str, pdf_path: str, filename: str):
     """Background task to process bail application."""
     try:
+        logger.info(f"🔄 Starting background processing for {case_id}")
+        
         result = pipeline.process_bail_application(pdf_path)
         
         processing_tasks[case_id] = {
@@ -291,8 +369,10 @@ def process_bail_background(case_id: str, pdf_path: str, filename: str):
             "completed_at": datetime.now().isoformat()
         }
         
+        logger.info(f"✅ Background processing completed for {case_id}")
+        
     except Exception as e:
-        logger.error(f"Background processing failed for {case_id}: {e}")
+        logger.error(f"❌ Background processing failed for {case_id}: {e}", exc_info=True)
         processing_tasks[case_id] = {
             "status": "failed",
             "filename": filename,
@@ -301,18 +381,17 @@ def process_bail_background(case_id: str, pdf_path: str, filename: str):
         }
     
     finally:
-        # Cleanup temp file
         cleanup_temp_file(Path(pdf_path))
 
 
 def index_documents_background(category: Optional[str] = None):
     """Background task to index documents."""
     try:
-        logger.info(f"Starting document indexing for category: {category or 'all'}")
+        logger.info(f"📚 Starting document indexing - Category: {category or 'ALL'}")
         pipeline.process_documents(category=category)
-        logger.info("Document indexing completed")
+        logger.info("✅ Document indexing completed")
     except Exception as e:
-        logger.error(f"Document indexing failed: {e}")
+        logger.error(f"❌ Document indexing failed: {e}", exc_info=True)
 
 
 def cleanup_temp_file(file_path: Path):
@@ -320,11 +399,14 @@ def cleanup_temp_file(file_path: Path):
     try:
         if file_path.exists():
             file_path.unlink()
-            logger.info(f"Cleaned up temp file: {file_path}")
+            logger.info(f"🗑️  Cleaned up temp file: {file_path}")
     except Exception as e:
-        logger.warning(f"Failed to cleanup temp file {file_path}: {e}")
+        logger.warning(f"Failed to cleanup {file_path}: {e}")
 
+
+# ==================== SERVER STARTUP ====================
 
 if __name__ == "__main__":
     import uvicorn
+    logger.info("🚀 Starting HybridBail API Server")
     uvicorn.run("api:app", host="0.0.0.0", port=8000, reload=True)
