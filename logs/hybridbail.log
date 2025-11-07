@@ -33105,3 +33105,125 @@ b'{"status":{"error":"Not found: Collection `hybridbail_high_court_bail` doesn\'
 2025-10-30 11:09:13,433 - __main__ - INFO - Accused profile: Age=None, Gender=male
 2025-10-30 11:09:13,435 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
 2025-10-30 11:09:15,927 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 19:35:57,932 - __main__ - INFO - ================================================================================
+2025-11-07 19:35:57,933 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 19:35:57,933 - __main__ - INFO - ================================================================================
+2025-11-07 19:35:57,933 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 19:35:58,592 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 19:35:58,596 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 19:35:59,417 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 19:36:13,035 - __main__ - INFO - 
+============================================================
+2025-11-07 19:36:13,035 - __main__ - INFO - Processing bail application: C:\Me\Main Bail Cases Folder\bail precedent\Ramesh_Bhavan_Rathod_vs_Vishanbhai_Hirabhai_Makwana_Makwana_on_20_April_2021.PDF
+2025-11-07 19:36:13,036 - __main__ - INFO - ============================================================
+2025-11-07 19:36:14,328 - __main__ - INFO - Legal provisions: CrPC
+2025-11-07 19:36:14,338 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-11-07 19:36:14,340 - __main__ - INFO - Category: High Court Bail (confidence: 0.80)
+2025-11-07 19:36:15,695 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 19:39:21,101 - __main__ - INFO - ================================================================================
+2025-11-07 19:39:21,102 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 19:39:21,102 - __main__ - INFO - ================================================================================
+2025-11-07 19:39:21,102 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 19:39:21,992 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 19:39:21,993 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 19:39:23,217 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 19:40:09,080 - __main__ - INFO - 
+============================================================
+2025-11-07 19:40:09,081 - __main__ - INFO - Processing bail application: C:\Me\Main Bail Cases Folder\bail precedent\Ramesh_Bhavan_Rathod_vs_Vishanbhai_Hirabhai_Makwana_Makwana_on_20_April_2021.PDF
+2025-11-07 19:40:09,081 - __main__ - INFO - ============================================================
+2025-11-07 19:40:10,346 - __main__ - INFO - Legal provisions: CrPC
+2025-11-07 19:40:10,355 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-11-07 19:40:10,358 - __main__ - INFO - Category: High Court Bail (confidence: 0.80)
+2025-11-07 19:40:12,344 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 19:42:51,425 - __main__ - INFO - ================================================================================
+2025-11-07 19:42:51,426 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 19:42:51,426 - __main__ - INFO - ================================================================================
+2025-11-07 19:42:51,426 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 19:42:51,998 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 19:42:51,999 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 19:42:52,425 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 19:43:10,715 - __main__ - INFO - 
+============================================================
+2025-11-07 19:43:10,716 - __main__ - INFO - Processing bail application: 2
+2025-11-07 19:43:10,716 - __main__ - INFO - ============================================================
+2025-11-07 19:43:10,758 - pdf_ingester - WARNING - pdfplumber extraction failed: [Errno 2] No such file or directory: '2'
+2025-11-07 19:43:10,800 - pdf_ingester - ERROR - PyPDF2 extraction failed: [Errno 2] No such file or directory: '2'
+2025-11-07 19:43:10,800 - pdf_ingester - WARNING - Insufficient text extracted from 2
+2025-11-07 19:43:18,312 - __main__ - INFO - ================================================================================
+2025-11-07 19:43:18,313 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 19:43:18,313 - __main__ - INFO - ================================================================================
+2025-11-07 19:43:18,313 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 19:43:18,860 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 19:43:18,861 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 19:43:19,225 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 19:43:25,386 - __main__ - INFO - 
+============================================================
+2025-11-07 19:43:25,387 - __main__ - INFO - Processing bail application: C:\Athar_Pervez_vs_State_on_26_February_2016.PDF
+2025-11-07 19:43:25,387 - __main__ - INFO - ============================================================
+2025-11-07 19:43:25,929 - __main__ - INFO - Legal provisions: NDPS
+2025-11-07 19:43:25,934 - __main__ - INFO - Accused profile: Age=None, Gender=male
+2025-11-07 19:43:25,936 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-11-07 19:43:27,240 - jina_embedder - INFO - Generated 1 embeddings
+2025-11-07 19:43:27,272 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 200 OK"
+2025-11-07 19:43:27,275 - __main__ - INFO - Retrieved 10 similar cases
+2025-11-07 19:43:27,276 - __main__ - INFO - Precedent analysis: Analyzed 10 similar precedent cases. Mixed outcomes: 0% granted, 0% denied.
+2025-11-07 19:43:27,276 - __main__ - INFO - Decision: HUMAN_INTERVENTION_REQUIRED (confidence: 89.79%)
+2025-11-07 19:43:52,193 - __main__ - INFO - ================================================================================
+2025-11-07 19:43:52,194 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 19:43:52,194 - __main__ - INFO - ================================================================================
+2025-11-07 19:43:52,194 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 19:43:52,759 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 19:43:52,759 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 19:43:53,116 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 19:43:57,745 - __main__ - INFO - 
+============================================================
+2025-11-07 19:43:57,746 - __main__ - INFO - Processing bail application: C:\Me\Main Bail Cases Folder\NDPS bail\Dinesh_Kumar_Billa_vs_State_Of_Himachal_Pradesh_on_6_July_2020.PDF
+2025-11-07 19:43:57,746 - __main__ - INFO - ============================================================
+2025-11-07 19:43:58,603 - __main__ - INFO - Legal provisions: NDPS
+2025-11-07 19:43:58,609 - __main__ - INFO - Accused profile: Age=25, Gender=male
+2025-11-07 19:43:58,611 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-11-07 19:43:59,487 - jina_embedder - ERROR - Jina API call failed: 400 Client Error: Bad Request for url: https://api.jina.ai/v1/embeddings
+2025-11-07 20:40:49,219 - __main__ - INFO - ================================================================================
+2025-11-07 20:40:49,220 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 20:40:49,220 - __main__ - INFO - ================================================================================
+2025-11-07 20:40:49,220 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 20:40:49,835 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 20:40:49,836 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 20:40:50,522 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 20:46:32,263 - __main__ - INFO - ================================================================================
+2025-11-07 20:46:32,263 - __main__ - INFO - HybridBail: District Court Bail Decision Support System
+2025-11-07 20:46:32,264 - __main__ - INFO - ================================================================================
+2025-11-07 20:46:32,264 - __main__ - INFO - Initializing HybridBail components...
+2025-11-07 20:46:32,876 - httpx - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-07 20:46:32,876 - qdrant_database - INFO - Connected to Qdrant at localhost:6333
+2025-11-07 20:46:33,276 - llm_integration - INFO - Initialized Gemini: gemini-2.0-flash-exp
+2025-11-07 20:58:13,777 - __main__ - INFO - 
+============================================================
+2025-11-07 20:58:13,777 - __main__ - INFO - Processing bail application: C:\Me\Main Bail Cases Folder\NDPS bail\Dinesh_Kumar_Billa_vs_State_Of_Himachal_Pradesh_on_6_July_2020.PDF
+2025-11-07 20:58:13,777 - __main__ - INFO - ============================================================
+2025-11-07 20:58:14,679 - __main__ - INFO - Legal provisions: NDPS
+2025-11-07 20:58:14,684 - __main__ - INFO - Accused profile: Age=25, Gender=male
+2025-11-07 20:58:14,686 - __main__ - INFO - Category: NDPS Bail (confidence: 0.95)
+2025-11-07 20:58:14,686 - __main__ - INFO - Chunking document for embedding...
+2025-11-07 20:58:14,687 - text_chunker - INFO - Created 57 chunks from text of length 45124
+2025-11-07 20:58:14,687 - __main__ - INFO - Created 57 chunks
+2025-11-07 20:58:14,687 - __main__ - INFO - Generating embeddings for chunks...
+2025-11-07 20:58:17,496 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-07 20:58:17,498 - __main__ - INFO - Embedded batch 1/6
+2025-11-07 20:58:19,153 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-07 20:58:19,155 - __main__ - INFO - Embedded batch 2/6
+2025-11-07 20:58:21,044 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-07 20:58:21,045 - __main__ - INFO - Embedded batch 3/6
+2025-11-07 20:58:23,021 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-07 20:58:23,022 - __main__ - INFO - Embedded batch 4/6
+2025-11-07 20:58:25,142 - jina_embedder - INFO - Generated 10 embeddings
+2025-11-07 20:58:25,143 - __main__ - INFO - Embedded batch 5/6
+2025-11-07 20:58:26,770 - jina_embedder - INFO - Generated 7 embeddings
+2025-11-07 20:58:26,771 - __main__ - INFO - Embedded batch 6/6
+2025-11-07 20:58:26,774 - __main__ - INFO - Aggregated 57 chunk embeddings into query vector
+2025-11-07 20:58:26,775 - __main__ - INFO - Searching for similar precedents...
+2025-11-07 20:58:26,804 - httpx - INFO - HTTP Request: POST http://localhost:6333/collections/hybridbail_ndps_bail/points/search "HTTP/1.1 200 OK"
+2025-11-07 20:58:26,808 - __main__ - INFO - Retrieved 10 similar cases
+2025-11-07 20:58:26,808 - __main__ - INFO - Precedent analysis: Analyzed 10 similar precedent cases. Mixed outcomes: 0% granted, 0% denied.
+2025-11-07 20:58:26,809 - __main__ - INFO - Decision: DENY_BAIL (confidence: 90.91%)
+2025-11-07 20:58:26,809 - __main__ - INFO - Generating detailed legal reasoning...

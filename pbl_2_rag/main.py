@@ -1,5 +1,6 @@
 import sys
 import logging
+import numpy as np
 from pathlib import Path
 from config import HybridBailConfig
 from utils import setup_logging, ProgressTracker
@@ -87,7 +88,8 @@ class HybridBailPipeline:
                 chunks = self.text_chunker.chunk_text(doc['text'])
                 
                 # Embed chunks
-                embeddings = self.embedder.embed_batch([c['text'] for c in chunks])
+                chunk_texts = [c['text'] for c in chunks]
+                embeddings = self.embedder.embed_batch(chunk_texts)
                 
                 # Store in vector DB
                 collection_name = self.config.get_collection_name(cat)
@@ -137,24 +139,49 @@ class HybridBailPipeline:
         category = classification['primary_category']
         logger.info(f"Category: {BAIL_CATEGORIES[category]['name']} (confidence: {classification['confidence_scores'][category]:.2f})")
         
-        # Step 5: Embed query
-        query_embedding = self.embedder.embed(doc['text'])
+        # Step 5: Chunk the text BEFORE embedding (THIS IS THE FIX!)
+        logger.info("Chunking document for embedding...")
+        chunks = self.text_chunker.chunk_text(doc['text'])
+        logger.info(f"Created {len(chunks)} chunks")
         
-        # Step 6: Retrieve similar cases
+        # Step 6: Embed chunks and aggregate
+        logger.info("Generating embeddings for chunks...")
+        chunk_texts = [chunk['text'] for chunk in chunks]
+        
+        # Batch embed chunks to avoid overwhelming the API
+        chunk_embeddings = []
+        batch_size = 10  # Process 10 chunks at a time
+        
+        for i in range(0, len(chunk_texts), batch_size):
+            batch = chunk_texts[i:i+batch_size]
+            try:
+                batch_embeddings = self.embedder.embed_batch(batch)
+                chunk_embeddings.extend(batch_embeddings)
+                logger.info(f"Embedded batch {i//batch_size + 1}/{(len(chunk_texts)-1)//batch_size + 1}")
+            except Exception as e:
+                logger.error(f"Failed to embed batch: {e}")
+                raise
+        
+        # Aggregate embeddings using average pooling
+        query_embedding = np.mean(chunk_embeddings, axis=0).tolist()
+        logger.info(f"Aggregated {len(chunk_embeddings)} chunk embeddings into query vector")
+        
+        # Step 7: Retrieve similar cases
+        logger.info("Searching for similar precedents...")
         similar_cases = self.search_engine.search(
             query_embedding=query_embedding,
-            query_text=doc['text'],
+            query_text=doc['text'][:2000],  # Use first 2000 chars for keyword search
             query_attributes=attributes,
             category=category,
             limit=10
         )
         logger.info(f"Retrieved {len(similar_cases)} similar cases")
         
-        # Step 7: Analyze precedents
+        # Step 8: Analyze precedents
         precedent_analysis = self.precedent_analyzer.analyze(similar_cases)
         logger.info(f"Precedent analysis: {precedent_analysis['summary']}")
         
-        # Step 8: Generate decision
+        # Step 9: Generate decision
         current_case = {
             'text': doc['text'],
             'category': category,
@@ -165,7 +192,8 @@ class HybridBailPipeline:
         decision = self.decision_engine.make_decision(current_case, similar_cases, category)
         logger.info(f"Decision: {decision['recommendation']} (confidence: {decision['confidence']:.2%})")
         
-        # Step 9: Generate detailed reasoning with LLM
+        # Step 10: Generate detailed reasoning with LLM
+        logger.info("Generating detailed legal reasoning...")
         reasoning = self.llm.generate_bail_reasoning(current_case, decision, similar_cases)
         
         # Compile final output
@@ -173,7 +201,7 @@ class HybridBailPipeline:
             'case_summary': {
                 'filename': doc['filename'],
                 'category': BAIL_CATEGORIES[category]['name'],
-                'language': self.multilingual.detect_language(doc['text'])
+                'language': self.multilingual.detect_language(doc['text'][:1000])
             },
             'legal_analysis': legal,
             'accused_profile': attributes,
@@ -223,15 +251,39 @@ def main():
     
     elif choice == "2":
         pdf_path = input("Enter path to bail application PDF: ").strip()
-        result = pipeline.process_bail_application(pdf_path)
         
-        print(f"\n{'='*60}")
-        print(f"BAIL DECISION REPORT")
-        print(f"{'='*60}")
-        print(f"\nCategory: {result['case_summary']['category']}")
-        print(f"Recommendation: {result['decision']['recommendation']}")
-        print(f"Confidence: {result['decision']['confidence']:.1%}")
-        print(f"\n{result['detailed_reasoning']}")
+        try:
+            result = pipeline.process_bail_application(pdf_path)
+            
+            print(f"\n{'='*60}")
+            print(f"BAIL DECISION REPORT")
+            print(f"{'='*60}")
+            print(f"\nCase: {result['case_summary']['filename']}")
+            print(f"Category: {result['case_summary']['category']}")
+            print(f"Language: {result['case_summary']['language']}")
+            print(f"\n--- Legal Analysis ---")
+            print(f"Primary Statute: {result['legal_analysis']['primary_statute']}")
+            print(f"Sections: {', '.join(result['legal_analysis']['all_sections'][:5])}")
+            print(f"Offense Nature: {result['legal_analysis']['offense_nature']}")
+            print(f"\n--- Accused Profile ---")
+            print(f"Age: {result['accused_profile'].get('age', 'Unknown')}")
+            print(f"Gender: {result['accused_profile'].get('gender', 'Unknown')}")
+            print(f"Criminal History: {result['accused_profile'].get('criminal_history', {}).get('category', 'Unknown')}")
+            print(f"\n--- Decision ---")
+            print(f"Recommendation: {result['decision']['recommendation']}")
+            print(f"Confidence: {result['decision']['confidence']:.1%}")
+            print(f"Similar Cases Analyzed: {result['decision']['similar_cases_count']}")
+            if result['decision']['needs_human_review']:
+                print(f"\n⚠️  HUMAN REVIEW REQUIRED")
+                print(f"Reasons: {', '.join(result['decision']['intervention_reasons'])}")
+            print(f"\n--- Precedent Analysis ---")
+            print(f"{result['precedent_analysis']['summary']}")
+            print(f"\n--- Detailed Reasoning ---")
+            print(result['detailed_reasoning'])
+            
+        except Exception as e:
+            logger.error(f"Error processing bail application: {e}", exc_info=True)
+            print(f"\n❌ Error: {e}")
     
     elif choice == "3":
         print("Evaluation mode - implement test set loading")
