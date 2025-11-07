@@ -280,7 +280,8 @@ class HybridBailConfig:
     def get_category_path(self, category: str) -> str:
         """Get filesystem path for a category's PDFs."""
         folder_name = self.CATEGORY_FOLDERS.get(category, category)
-        return os.path.join(self.PDF_DIRECTORY, folder_name)
+        return os.path.join("D:\\Main Bail Cases Folder-20250823T055958Z-1-001\\Main Bail Cases Folder", folder_name)
+
     
     def __repr__(self) -> str:
         """String representation for debugging."""
